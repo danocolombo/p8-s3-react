@@ -1,0 +1,22 @@
+.P8 {
+	background-image: url('../../assets/fullpage-background.jpg' no-repeat);
+}
+.P8 ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+.P8 li {
+	display: inline-block;
+	margin: 20px;
+}
+.P8 a {
+	text-decoration: none;
+	color: black;
+}
+.P8 a:hover,
+.P8 a:active {
+	color: #fa823f;
+}

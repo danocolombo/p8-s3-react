@@ -1,0 +1,11 @@
+.Home {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    
+}
+.bg {
+	background-image: url('../../../assets/fullpage-background.jpg');
+}
