@@ -1,5 +1,5 @@
-.P8 {
-	background-image: url('../../assets/fullpage-background.jpg' no-repeat);
+.P8 .background {
+	background-image: url("fullpage-background.jpg" no-repeat);
 }
 .P8 ul {
 	list-style: none;
@@ -14,9 +14,14 @@
 }
 .P8 a {
 	text-decoration: none;
+	font-size: 1.5em;
 	color: black;
 }
 .P8 a:hover,
 .P8 a:active {
 	color: #fa823f;
+}
+body {
+	background-color: #FFC;
+	padding: 30px;
 }

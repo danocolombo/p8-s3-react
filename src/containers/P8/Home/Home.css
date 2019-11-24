@@ -1,11 +1,16 @@
-.Home {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
-    
+body {
+	margin-left: 30px;
 }
-.bg {
-	background-image: url('../../../assets/fullpage-background.jpg');
+h1 {
+	font-style: italic;
+	font-weight: bolder;
+	font-size: 40px;
 }
+principle {
+	padding-left:20px;
+	padding-top:10px;
+	font-weight: bold;
+	font-size: 1.2em;
+
+}
+

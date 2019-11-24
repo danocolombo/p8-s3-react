@@ -1,0 +1,16 @@
+.Schedule {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    width: 80%;
+    margin: auto;
+    
+}
+.PageHeader {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.bg {
+	background-image: url('../../../assets/fullpage-background.jpg');
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import axios from '../../axios';
 import Home from './Home/Home';
 //import Posts from './Posts/Posts';
-import Register from './Register/Register';
+import Schedule from './Schedule/Schedule';
 import { Route, Link } from 'react-router-dom';
 import './P8.css';
 
@@ -17,16 +17,16 @@ class P8 extends Component {
                             {/* the following hash and search get appended to URL, but
                                 not used in this example  */}
                             <li><Link to={{
-                                pathname: '/new-post',
+                                pathname: '/schedule',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
-                            }}>New Post</Link></li>
+                            }}>Schedule</Link></li>
                         </ul>
                     </nav>
                 </header>
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
                 <Route path="/" exact component={Home} />
-                <Route path="/new-post" component={Register} />
+                <Route path="/schedule" component={Schedule} />
             </div>
         );
     }
