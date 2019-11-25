@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from '../../../axios';
+import axios from '../../axios';
 import Rally from '../../components/Rally/Rally';
-import classes from './Rally.css';
+import classes from './Rallies.css';
 class Rallies extends Component {
     state = {
         rallies: [],
@@ -29,8 +29,8 @@ class Rallies extends Component {
                 //this.setState({error: true});
             });
     }
-    rallySelectedHandler = (id) => {
-        this.setState({selectedRallyDate: rallyDate});
+    rallySelectedHandler = (eventDate) => {
+        this.setState({selectedRallyDate: eventDate});
     }
 
 	render () {
@@ -38,11 +38,11 @@ class Rallies extends Component {
         if (!this.state.error) {
             rallies = this.state.rallies.map(rally => {
                 return <Rally 
-                    key={rally.rallyDate} 
+                    key={rally.eventDate} 
                     church={rally.churchName} 
                     churchCity={rally.churchCity}
                 	churchState={rally.churchState}
-                    clicked={() => this.rallySelectedHandler(rally.rallyDate)} />;
+                    clicked={() => this.rallySelectedHandler(rally.eventDate)} />;
             });
         }
 		return (
