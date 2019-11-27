@@ -1,33 +1,38 @@
 import React, { Component } from 'react';
-import axios from '../../axios';
+//import axios from '../../axios';
 import Rally from '../../components/Rally/Rally';
 import classes from './Rallies.css';
+import { getDefaultWatermarks } from 'istanbul-lib-report';
+//import { RSA_NO_PADDING } from 'constants';
 class Rallies extends Component {
-    state = {
-        rallies: [],
+    constructor() {
+        super();
+        this.state = {
+            data: null,
+            rallies: [],
+        }
     }
  
     componentDidMount () {
-        //console.log(this.props);
-        axios.get( '/rallies' )
-            .then( response => {
-            	//load the events arracy with set number of events
-            	//maybe remove this and load all...
-                const rallies = response.data.slice(0, 4);
-                // the foloowing adds a value to each array...
-                const updatedRallies = rallies.map(rally => {
-                    return {
-                        ...rally,
-                        author: 'Dano'
-                    }
-                });
-                this.setState({rallies: updatedRallies});
-                // console.log( response );
-            } )
-            .catch(error => {
-                console.log(error);
-                //this.setState({error: true});
-            });
+        this.getData();
+    }
+
+    getData(){
+        let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
+            .then((resp)=>{
+                resp.json().then((res)=>{
+                    console.log(res.Items[0]);
+                    this.setState({data: res.Items})
+                })
+            })
+
+        // let data = fetch('https://facebook.github.io/react-native/movies.json')
+        //     .then((resp)=>{
+        //         resp.json().then((res)=>{
+        //             console.log(res.movies);
+        //             this.setState({data:res.movies})
+        //         })
+        //     })
     }
     rallySelectedHandler = (eventDate) => {
         this.setState({selectedRallyDate: eventDate});
@@ -36,18 +41,24 @@ class Rallies extends Component {
 	render () {
 		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
-            rallies = this.state.rallies.map(rally => {
-                return <Rally 
-                    key={rally.eventDate} 
-                    church={rally.churchName} 
-                    churchCity={rally.churchCity}
-                	churchState={rally.churchState}
-                    clicked={() => this.rallySelectedHandler(rally.eventDate)} />;
-            });
+            rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
+            // console.log({rallies});
         }
 		return (
-			<section className="Rallies">
-			    {rallies}
+			<section className={classes}>
+                <h2>Upcoming Rallies</h2>
+                {
+                    this.state.data ?
+                    this.state.data.map((item)=>
+                        <section className={classes}>
+                        <h3>{item.eventDate}</h3>
+                        <div name='church' className={classes}>{item.churchName}</div>
+                        </section>
+                    )
+                    :
+                    <h3>Wait... data is fetching</h3>
+                }
+
 			</section>
 		);
 	}

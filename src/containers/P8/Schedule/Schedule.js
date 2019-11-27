@@ -8,24 +8,9 @@ class Events extends Component {
     }
  
     componentDidMount () {
-        //console.log(this.props);
-        axios.get( '/schedule' )
-            .then( response => {
-                const events = response.data.slice(0, 4);
-                const updatedEvents = events.map(post => {
-                    return {
-                        ...event,
-                        year: '2020'
-                        //author: 'Max'
-                    }
-                });
-                this.setState({events: updatedEvents});
-                // console.log( response );
-            } )
-            .catch(error => {
-                console.log(error);
-                //this.setState({error: true});
-            });
+        fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
+            .then( response => response.json())
+            .then( data => console.log(data));
     }
     eventSelectedHandler = (id) => {
         this.setState({selectedEventDate: eventDate});
