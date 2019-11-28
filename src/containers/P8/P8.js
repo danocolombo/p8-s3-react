@@ -17,7 +17,7 @@ class P8 extends Component {
                             {/* the following hash and search get appended to URL, but
                                 not used in this example  */}
                             <li><Link to={{
-                                pathname: '/',
+                                pathname: '/rallies',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
                             }}>Schedule</Link></li>
