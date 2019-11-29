@@ -41,22 +41,26 @@ class Rallies extends Component {
 	render () {
 		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
-            rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
-            // console.log({rallies});
+            // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
+            console.log(this.state.data);
         }
 		return (
 			<section className={classes}>
                 <h2>Upcoming Rallies</h2>
                 {
                     this.state.data ?
-                    this.state.data.map((item)=>
-                        <section className={classes}>
-                        <h3>{item.eventDate}</h3>
-                        <div name='church' className={classes}>{item.churchName}</div>
+                    this.state.data
+                    .map((item)=>
+                        <section>
+                        <div className={classes.EventDate} key={item.eventDate}>{item.eventDate}</div>
+                        <div className={classes.ChurchName}>{item.churchName}</div>
+                        <div className={classes.ChurchLocation}>{item.churchStreet}<br/>
+                        {item.churchCity}, {item.churchState} {item.churchZipcode}</div>
+                        <br/>
                         </section>
                     )
                     :
-                    <h3>Wait... data is fetching</h3>
+                    <h3>Getting data from cloud, just a moment.</h3>
                 }
 
 			</section>

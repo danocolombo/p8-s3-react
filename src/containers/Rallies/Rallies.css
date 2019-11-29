@@ -5,9 +5,16 @@
     width: 80%;
     margin: auto;
 }
-h3 {
-    margin-left: 35px;
+.EventDate {
+    font-size: 2.0em;
+    font-weight: bolder;
+    margin-left: 20px;
 }
-div .church {
-    margin-left: 70px;
+.ChurchName {
+    font-size: 1.5em;
+    font-style: italic;
+    margin-left: 25px;
+}
+.ChurchLocation {
+    margin-left: 25px;
 }
