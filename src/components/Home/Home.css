@@ -4,13 +4,16 @@ body {
 h1 {
 	font-style: italic;
 	font-weight: bolder;
-	font-size: 40px;
+	font-size: 45px;
 }
-principle {
+.Principle {
 	padding-left:20px;
 	padding-top:10px;
 	font-weight: bold;
 	font-size: 1.2em;
 
+}
+Message {
+	padding-left: 40px;
 }
 
