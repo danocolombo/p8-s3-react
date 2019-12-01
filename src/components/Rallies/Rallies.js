@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RallyItem from '../RallyItem/RallyItem';
 //import axios from '../../axios';
 import Rally from '../../containers/Rally/Rally';
 import './Rallies.css';
@@ -72,13 +73,15 @@ class Rallies extends Component {
                     this.state.data ?
                     this.state.data
                     .map((item)=>
-                        <section>
-                        <div className="EventDate" key={item.eventDate}>{item.eventDate}</div>
-                        <div className="ChurchName">{item.locationName}</div>
-                        <div className="ChurchLocation">{item.locationStreet}<br/>
-                        {item.locationCity},{item.locationState} {item.locationZipcode}</div>
-                        <br/>
-                        </section>
+                        <RallyItem 
+                            key={item.id} 
+                            eventDate={item.eventDate} 
+                            locationName={item.locationName}
+                            locationStreet={item.locationStreet}
+                            locationCity={item.locationCity}
+                            locationState={item.locationState}
+                            locationZipcode={item.locationZipcode}
+                        />
                     )
                     :
                     <h3>Getting data from cloud, just a moment.</h3>
@@ -89,3 +92,10 @@ class Rallies extends Component {
 	}
 }
 export default Rallies;
+// <section>
+// <div className="EventDate" key={item.eventDate}>{item.eventDate}</div>
+// <div className="ChurchName">{item.locationName}</div>
+// <div className="ChurchLocation">{item.locationStreet}<br/>
+// {item.locationCity},{item.locationState} {item.locationZipcode}</div>
+// <br/>
+// </section>
