@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Button from '../../../components/UI/Button/Button';
-import Spinner from '../../../components/UI/Spinner/Spinner';
-import Input from '../../components/UI/Forms/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import Input from '../../components/UI/Forms/Input';
 import classes from './Rally.css';
 //import axios from '../../../axios-orders';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import axios from '../../axios';
 import Home from '../../components/Home/Home';
 //import Posts from './Posts/Posts';
-import Rallies from '../Rallies/Rallies';
+import Rallies from '../../components/Rallies/Rallies';
 import { Route, Link } from 'react-router-dom';
 import './P8.css';
 

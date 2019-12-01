@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 //import axios from '../../axios';
-import Rally from '../../components/Rally/Rally';
-import classes from './Rallies.css';
-import { getDefaultWatermarks } from 'istanbul-lib-report';
+import Rally from '../../containers/Rally/Rally';
+import './Rallies.css';
+// import { getDefaultWatermarks } from 'istanbul-lib-report';
 //import { RSA_NO_PADDING } from 'constants';
 class Rallies extends Component {
     constructor() {
@@ -21,7 +21,7 @@ class Rallies extends Component {
         let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
             .then((resp)=>{
                 resp.json().then((res)=>{
-                    console.log(res.Items[0]);
+                    // console.log(res.Items[0]);
                     this.setState({data: res.Items})
                 })
             })
@@ -34,28 +34,49 @@ class Rallies extends Component {
         //         })
         //     })
     }
+    
     rallySelectedHandler = (eventDate) => {
         this.setState({selectedRallyDate: eventDate});
     }
 
 	render () {
+
+        function dynamicSort(property) {
+            var sortOrder = 1;
+            if(property[0] === "-") {
+                sortOrder = -1;
+                property = property.substr(1);
+            }
+            return function (a,b) {
+                if(sortOrder == -1){
+                    return b[property].localeCompare(a[property]);
+                }else{
+                    return a[property].localeCompare(b[property]);
+                }        
+            }
+        }
+
 		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
-            console.log(this.state.data);
+            // console.log(this.state.data);
+            //data now has the events, need to sort
+            this.state.rallies = this.state.data;
+            if (this.state.rallies) this.state.rallies.sort(dynamicSort("eventDate"));
+            // console.log(this.state.rallies);
         }
 		return (
-			<section className={classes}>
+			<section>
                 <h2>Upcoming Rallies</h2>
                 {
                     this.state.data ?
                     this.state.data
                     .map((item)=>
                         <section>
-                        <div className={classes.EventDate} key={item.eventDate}>{item.eventDate}</div>
-                        <div className={classes.ChurchName}>{item.churchName}</div>
-                        <div className={classes.ChurchLocation}>{item.churchStreet}<br/>
-                        {item.churchCity}, {item.churchState} {item.churchZipcode}</div>
+                        <div className="EventDate" key={item.eventDate}>{item.eventDate}</div>
+                        <div className="ChurchName">{item.churchName}</div>
+                        <div className="ChurchLocation">{item.churchStreet}<br/>
+                        {item.churchCity},{item.churchState} {item.churchZipcode}</div>
                         <br/>
                         </section>
                     )
