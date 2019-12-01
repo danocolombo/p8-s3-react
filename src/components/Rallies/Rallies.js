@@ -48,7 +48,7 @@ class Rallies extends Component {
                 property = property.substr(1);
             }
             return function (a,b) {
-                if(sortOrder == -1){
+                if(sortOrder === -1){
                     return b[property].localeCompare(a[property]);
                 }else{
                     return a[property].localeCompare(b[property]);
@@ -61,7 +61,7 @@ class Rallies extends Component {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
             // console.log(this.state.data);
             //data now has the events, need to sort
-            this.state.rallies = this.state.data;
+            this.setState.rallies = this.state.data;
             if (this.state.rallies) this.state.rallies.sort(dynamicSort("eventDate"));
             // console.log(this.state.rallies);
         }
@@ -74,9 +74,9 @@ class Rallies extends Component {
                     .map((item)=>
                         <section>
                         <div className="EventDate" key={item.eventDate}>{item.eventDate}</div>
-                        <div className="ChurchName">{item.churchName}</div>
-                        <div className="ChurchLocation">{item.churchStreet}<br/>
-                        {item.churchCity},{item.churchState} {item.churchZipcode}</div>
+                        <div className="ChurchName">{item.locationName}</div>
+                        <div className="ChurchLocation">{item.locationStreet}<br/>
+                        {item.locationCity},{item.locationState} {item.locationZipcode}</div>
                         <br/>
                         </section>
                     )
