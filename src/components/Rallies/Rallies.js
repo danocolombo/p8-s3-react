@@ -10,7 +10,6 @@ class Rallies extends Component {
         super();
         this.state = {
             data: null,
-            rallies: [],
         }
     }
  
@@ -60,11 +59,12 @@ class Rallies extends Component {
 		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
-            // console.log(this.state.data);
+            console.log(this.state.data);
+            // this.state.data.sort(dynamicSort("eventDate"));
             //data now has the events, need to sort
-            this.setState.rallies = this.state.data;
-            if (this.state.rallies) this.state.rallies.sort(dynamicSort("eventDate"));
-            // console.log(this.state.rallies);
+            // this.setState.rallies = this.state.data;
+            if (this.state.data) this.state.data.sort(dynamicSort("eventDate"));
+            console.log(this.state.rallies);
         }
 		return (
 			<section>
@@ -72,17 +72,20 @@ class Rallies extends Component {
                 {
                     this.state.data ?
                     this.state.data
-                    .map((item)=>
-                        <RallyItem 
-                            key={item.id} 
-                            eventDate={item.eventDate} 
-                            locationName={item.locationName}
-                            locationStreet={item.locationStreet}
-                            locationCity={item.locationCity}
-                            locationState={item.locationState}
-                            locationZipcode={item.locationZipcode}
-                        />
-                    )
+                        .map((item)=>
+                            
+                            <RallyItem 
+                                key={item.id} 
+                                eventID={item.id}
+                                eventDate={item.eventDate} 
+                                locationName={item.locationName}
+                                locationStreet={item.locationStreet}
+                                locationCity={item.locationCity}
+                                locationState={item.locationState}
+                                locationZipcode={item.locationZipcode}
+                            />
+                            
+                        )
                     :
                     <h3>Getting data from cloud, just a moment.</h3>
                 }
