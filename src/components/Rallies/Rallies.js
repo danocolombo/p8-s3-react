@@ -10,7 +10,6 @@ class Rallies extends Component {
         super();
         this.state = {
             data: null,
-            rallies: [],
         }
     }
  
@@ -60,7 +59,8 @@ class Rallies extends Component {
 		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
-            // console.log(this.state.data);
+            console.log(this.state.data);
+            // this.state.data.sort(dynamicSort("eventDate"));
             //data now has the events, need to sort
             // this.setState.rallies = this.state.data;
             if (this.state.data) this.state.data.sort(dynamicSort("eventDate"));
