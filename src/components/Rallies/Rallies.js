@@ -62,9 +62,9 @@ class Rallies extends Component {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
             // console.log(this.state.data);
             //data now has the events, need to sort
-            this.setState.rallies = this.state.data;
-            if (this.state.rallies) this.state.rallies.sort(dynamicSort("eventDate"));
-            // console.log(this.state.rallies);
+            // this.setState.rallies = this.state.data;
+            if (this.state.data) this.state.data.sort(dynamicSort("eventDate"));
+            console.log(this.state.data);
         }
 		return (
 			<section>
@@ -75,6 +75,7 @@ class Rallies extends Component {
                     .map((item)=>
                         <RallyItem 
                             key={item.id} 
+                            eventID={item.id}
                             eventDate={item.eventDate} 
                             locationName={item.locationName}
                             locationStreet={item.locationStreet}
