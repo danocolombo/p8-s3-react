@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RallyItem from '../RallyItem/RallyItem';
-//import axios from '../../axios';
+// import axios from '../../axios';
 import Rally from '../../containers/Rally/Rally';
 import './Rallies.css';
 // import { getDefaultWatermarks } from 'istanbul-lib-report';
@@ -10,6 +10,7 @@ class Rallies extends Component {
         super();
         this.state = {
             data: null,
+            rallyevent: [],
         }
     }
  
@@ -18,25 +19,22 @@ class Rallies extends Component {
     }
 
     getData(){
+        let rallyevent = "<p>something went wrong</p>";
         let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
             .then((resp)=>{
                 resp.json().then((res)=>{
-                    // console.log(res.Items[0]);
+                    this.setState({ rallyevent: this.state.rallyevent.push("A")})                    
                     this.setState({data: res.Items})
                 })
             })
-
-        // let data = fetch('https://facebook.github.io/react-native/movies.json')
-        //     .then((resp)=>{
-        //         resp.json().then((res)=>{
-        //             console.log(res.movies);
-        //             this.setState({data:res.movies})
-        //         })
-        //     })
     }
     
-    rallySelectedHandler = (eventDate) => {
-        this.setState({selectedRallyDate: eventDate});
+    rallySelectedHandler = (eventID) => {
+        // this.setState({selectedRallyDate: eventID});
+        console.log("the clicked event was:");
+        console.log(eventID);
+        window.location.assign('/register?ID='+eventID);
+        // window.location.assign('/search/'+this.state.query+'/some-action');
     }
 
 	render () {
@@ -56,15 +54,19 @@ class Rallies extends Component {
             }
         }
 
-		let rallies = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             // rallies = <p style={{textAlign: 'center'}}>We are closer...</p>
-            console.log(this.state.data);
+            // console.log("----data-----");
+            // console.log(this.state.data);
             // this.state.data.sort(dynamicSort("eventDate"));
             //data now has the events, need to sort
-            // this.setState.rallies = this.state.data;
+            // console.log("show data[2]");
+            // console.log(this.state.data[2]);
+            //this.setState.rallyevent = this.state.data.slice();
+            // console.log("----rallyevent----");
+            // console.log(this.state.rallyevent[1]);
             if (this.state.data) this.state.data.sort(dynamicSort("eventDate"));
-            console.log(this.state.data);
+            // console.log(this.state.data);
         }
 		return (
 			<section>
@@ -82,6 +84,7 @@ class Rallies extends Component {
                             locationCity={item.locationCity}
                             locationState={item.locationState}
                             locationZipcode={item.locationZipcode}
+                            clicked={() => this.rallySelectedHandler(item.id)}
                         />
                     )
                     :

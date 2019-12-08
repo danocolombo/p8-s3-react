@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-//import axios from '../../axios';
+// import axios from '../../axios';
 import Home from '../../components/Home/Home';
 //import Posts from './Posts/Posts';
 import Rallies from '../../components/Rallies/Rallies';
+import Register from '../../containers/Register/Register';
 import { Route, Link } from 'react-router-dom';
 import './P8.css';
 
@@ -27,6 +28,7 @@ class P8 extends Component {
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
                 <Route path="/" exact component={Home} />
                 <Route path="/rallies" component={Rallies} />
+                <Route path="/register" component={Register} />
             </div>
         );
     }

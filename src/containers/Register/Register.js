@@ -1,47 +1,58 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import axios from 'axios';
 
-import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-import ContactData from './ContactData/ContactData';
-import * as actions from '../../store/actions/index';
+import './Register.css';
 
-class Checkout extends Component {
-
-    checkoutCancelledHandler = () => {
-        this.props.history.goBack();
+class Register extends Component {
+    state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
     }
+    componentDidMount () {
+        //console.log(this.props);
 
-    checkoutContinuedHandler = () => {
-        this.props.history.replace( '/checkout/contact-data' );
+    }
+    getEventData(){
+        
+    }
+    registerDataHandler = () => {
+        // const data = {
+        //     title: this.state.title,
+        //     body: this.state.content,
+        //     author: this.state.author
+        // };
+        // axios.post('/posts', data)
+        //     .then(response => {
+        //         console.log(response);
+        //     });
     }
 
     render () {
-        let summary = <Redirect to="/" />
-        if ( this.props.ings ) {
-            const purchasedRedirect = this.props.purchased ? <Redirect to="/"/> : null;
-            summary = (
-                <div>
-                    {purchasedRedirect}
-                    <CheckoutSummary
-                        ingredients={this.props.ings}
-                        checkoutCancelled={this.checkoutCancelledHandler}
-                        checkoutContinued={this.checkoutContinuedHandler} />
-                    <Route
-                        path={this.props.match.path + '/contact-data'}
-                        component={ContactData} />
-                </div>
-            );
-        }
-        return summary;
+        return (
+            <div className="Register">
+                <h1>We are registering!!</h1>
+                <label>First Name</label>
+                <input type="text" value={this.state.firstName} onChange={(event) => this.setState({firstName: event.target.value})} />
+                <label>Last Name</label>
+                <input type="text" value={this.state.lastName} onChange={(event) => this.setState({lastName: event.target.value})} />
+                <label>Phone</label>
+                <input type="text" value={this.state.phone} onChange={(event) => this.setState({phone: event.target.value})} />
+                <label>Email</label>
+                <input type="text" value={this.state.email} onChange={(event) => this.setState({email: event.target.value})} />
+                
+                {/* <label>Content</label>
+                <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
+                <label>Author</label>
+                <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
+                    <option value="Max">Max</option>
+                    <option value="Manu">Manu</option>
+                </select> */}
+                <button onClick={this.registerDataHandler}>Register</button>
+            </div>
+        );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        ings: state.burgerBuilder.ingredients,
-        purchased: state.order.purchased
-    }
-};
-
-export default connect( mapStateToProps )( Checkout );
+export default Register;
