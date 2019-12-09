@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import RallyItem from '../RallyItem/RallyItem';
 // import axios from '../../axios';
 import Rally from '../../containers/Rally/Rally';
-import './Rallies.css';
+import classes from './Rallies.css';
+//import './Rallies.css';
 // import { getDefaultWatermarks } from 'istanbul-lib-report';
 //import { RSA_NO_PADDING } from 'constants';
 class Rallies extends Component {
@@ -65,12 +66,14 @@ class Rallies extends Component {
             //this.setState.rallyevent = this.state.data.slice();
             // console.log("----rallyevent----");
             // console.log(this.state.rallyevent[1]);
+        
             if (this.state.data) this.state.data.sort(dynamicSort("eventDate"));
             // console.log(this.state.data);
         }
 		return (
 			<section>
-                <h2>Upcoming Rallies</h2>
+                <h2 className={classes.h2}>Upcoming Rallies</h2>
+                <p className={classes.intro}>Please review the upcoming events and click the register button to RSVP</p>
                 {
                     this.state.data ?
                     this.state.data
