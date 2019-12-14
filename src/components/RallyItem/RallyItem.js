@@ -1,13 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from '../UI/Button/Button';
-import './RallyItem.css';
+import classes from './RallyItem.css';
 
 const rallyitem = (props) => {
     return (
     <section>
         
-        <div className="EventDate">{props.eventDate}
+        <div className={classes.RallyItem}>{props.eventDate}
             <button onClick={props.clicked}>REGISTER</button>
         </div>
         <div className="ChurchName" onClick={props.clicked}>{props.locationName}</div>
