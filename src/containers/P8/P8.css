@@ -1,5 +1,5 @@
 .P8 .background {
-	background-image: url("fullpage-background.jpg" no-repeat);
+	background-image: url("./../../assets/fullpage-background.jpg" no-repeat);
 }
 .P8 ul {
 	list-style: none;

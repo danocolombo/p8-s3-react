@@ -5,30 +5,20 @@ import Home from '../../components/Home/Home';
 import Rallies from '../../components/Rallies/Rallies';
 import Register from '../../containers/Register/Register';
 import { Route, Link } from 'react-router-dom';
+import Layout from '../../hoc/Layout/Layout';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import './P8.css';
 
 class P8 extends Component {
     render () {
         return (
-            <div className="P8">
-                <header>
-                    <nav>
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            {/* the following hash and search get appended to URL, but
-                                not used in this example  */}
-                            <li><Link to={{
-                                pathname: '/rallies',
-                                hash: '#submit',
-                                search: '?quick-submit=true'
-                            }}>Schedule</Link></li>
-                        </ul>
-                    </nav>
-                </header>
-                {/* <Route path="/" exact render={() => <h1>Home</h1>} /> */}
-                <Route path="/" exact component={Home} />
-                <Route path="/rallies" component={Rallies} />
-                <Route path="/register" component={Register} />
+            <div>
+                <Layout>
+                <Toolbar/>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/rallies" component={Rallies} />
+                    <Route path="/register" component={Register} />
+                </Layout>
             </div>
         );
     }
