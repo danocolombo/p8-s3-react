@@ -2,22 +2,24 @@
     width: 80%;
     margin: 20px auto;
     border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    text-align: center;
+    box-shadow: 0 2px 3px #222;
+    text-align: left;
 }
 
 .Register label {
     display: block;
     margin: 10px auto;
-    text-align: center;
+    padding-left: 15px;
+    text-align: left;
     font-weight: bold;
 }
 
 .Register input,
 .Register textarea,
 .Register select {
-    display: block;
-    width: 80%;
+    /* display: block; */
+    /* width: 80%; */
+    size: 50px;
     box-sizing: border-box;
     border: 1px solid black;
     outline: none;

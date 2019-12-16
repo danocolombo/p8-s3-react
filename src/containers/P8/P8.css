@@ -1,5 +1,5 @@
 .P8 .background {
-	background-image: url("fullpage-background.jpg" no-repeat);
+	background-image: url("./../../assets/images/fullpage-background.jpg" no-repeat);
 }
 .P8 ul {
 	list-style: none;
@@ -22,6 +22,6 @@
 	color: #fa823f;
 }
 body {
-	background-color: #FFC;
-	padding: 30px;
+	background-color: #ffffff;
+	margin-left: 25px;
 }

@@ -1,0 +1,23 @@
+.RallyItem {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+.EventDate {
+    font-size: 1.2em;
+    font-weight: bolder;
+    margin-left: 20px;
+}
+.ChurchName {
+    font-size: 1.5em;
+    font-style: italic;
+    margin-left: 25px;
+}
+.ChurchLocation {
+    margin-left: 35px;
+}
+.RegisterButton {
+    padding-left:15px;
+}
