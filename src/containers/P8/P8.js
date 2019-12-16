@@ -8,7 +8,9 @@ import { Route, Link } from 'react-router-dom';
 import Layout from '../../hoc/Layout/Layout';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import './P8.css';
-
+//==========================================================
+// this is used for the P8 Rally Centrol base functionality
+//==========================================================
 class P8 extends Component {
     render () {
         return (
