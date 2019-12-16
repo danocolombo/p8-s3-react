@@ -25,5 +25,4 @@ const sideDrawer = ( props ) => {
         </Aux>
     );
 };
-
 export default sideDrawer;
