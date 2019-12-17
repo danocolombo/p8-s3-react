@@ -1,18 +1,40 @@
-.Toolbar {
-    height: 56px;
-    width: 100%;
-    position: fixed; /* this keeps toolbar at top, even when we scroll */
+.toolbar {
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: #703b70;
-    /* display: flex;   so all items in toolbar are aligned to each other. see more about flexbox */
-    justify-content: space-between; 
-    align-items: center;  /* vertical alignment */
-    padding: 0, 20px;   /* zero top and bottom, 20px left and right */
-    box-sizing: border-box;
-    z-index: 90;  /* this value needs to be lower than the UI/Backdrop/Backdrop.css backdrop to dislay properly */
+    width: 100%;
+    background: #521751;
+    height: 56px;
 }
-.Toolbar nav {
+.toolbar_navigation {
+    display: flex;
     height: 100%;
-    
+    align-items: center;
+    padding: 0 1rem;
 }
+.toolbar_logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.spacer {
+    flex: 1;
+}
+.toolbar_navigation-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.toolbar_navigation-items li {
+    padding: 0 .5rem;
+}
+.toolbar_navigation-items a {
+    color: white;
+    text-decoration: none;
+}
+.toolbar_navigation-items a:hover,
+.toolbar_navigation-items a:active {
+    color: #fa923f;
+}
+ 
