@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
+import ContactData from './ContactData/ContactData';
 
 import './Register.css';
 
@@ -32,15 +33,12 @@ class Register extends Component {
     render () {
         return (
             <div className="Register">
+                
                 <h1>We are registering!!</h1>
-                <label>First Name</label>
-                <input type="text" value={this.state.firstName} onChange={(event) => this.setState({firstName: event.target.value})} />
-                <label>Last Name</label>
-                <input type="text" value={this.state.lastName} onChange={(event) => this.setState({lastName: event.target.value})} />
-                <label>Phone</label>
-                <input type="text" value={this.state.phone} onChange={(event) => this.setState({phone: event.target.value})} />
-                <label>Email</label>
-                <input type="text" value={this.state.email} onChange={(event) => this.setState({email: event.target.value})} />
+                <ContactData 
+                    
+                />
+                
                 
                 {/* <label>Content</label>
                 <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
