@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
+import './ContactData.css'
 
 class ContactData extends Component {
     render() {
         return (
-            <div>
-                <label>First Name</label><input type="text" />
-                <label>Last Name</label>
-                <input type="text"  />
-                <label>Phone</label>
-                <input type="text"  />
-                <label>Email</label>
-                <input type="text"  />
+            <div className="parent">
+                <div className="fName"><p className="labels">First Name</p><p><input type="text" /></p></div>
+                <div className="lName"><p className="labels">Last Name</p><p><input type="text" /></p></div>
+                <div className="phone"><p className="labels">Phone</p><p><input type="text" /></p></div>
+                <div className="email"><p className="labels">Email</p><p><input type="text" /></p></div>
                 
             </div>
         )
