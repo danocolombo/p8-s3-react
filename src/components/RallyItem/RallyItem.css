@@ -18,6 +18,10 @@
 .ChurchLocation {
     margin-left: 35px;
 }
-.RegisterButton {
-    padding-left:15px;
+.registerButton {
+    padding: 5px 10px 5px 10px;
+    margin-left: 10px;
+    vertical-align: middle;
+    color:whitesmoke;
+    background-color: salmon;
 }

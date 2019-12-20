@@ -82,11 +82,11 @@ class Rallies extends Component {
                             key={item.id} 
                             eventID={item.id}
                             eventDate={item.eventDate} 
-                            locationName={item.locationName}
-                            locationStreet={item.locationStreet}
-                            locationCity={item.locationCity}
-                            locationState={item.locationState}
-                            locationZipcode={item.locationZipcode}
+                            locationName={item.churchName}
+                            locationStreet={item.churchStreet}
+                            locationCity={item.churchCity}
+                            locationState={item.churchState}
+                            locationZipcode={item.churchZipcode}
                             clicked={() => this.rallySelectedHandler(item.id)}
                         />
                     )

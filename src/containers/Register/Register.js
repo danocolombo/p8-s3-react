@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import ContactData from './ContactData/ContactData';
-
+import CRDetails from './CRDetails/CRDetails';
 import './Register.css';
 
 class Register extends Component {
@@ -10,10 +10,16 @@ class Register extends Component {
         lastName: '',
         email: '',
         phone: '',
+        hasErrors: false,
+        rally: {}
     }
-    componentDidMount () {
-        //console.log(this.props);
-
+    componentDidMount() {
+    //https://swapi.co/api/planets/4/
+    // https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events
+    fetch("https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events")
+        .then(res => res.json())
+        .then(res => this.setState({ rally: res }))
+        .catch(() => this.setState({ hasErrors: true }));
     }
     getEventData(){
         
@@ -35,9 +41,8 @@ class Register extends Component {
             <div className="Register">
                 
                 <h1>We are registering!!</h1>
-                <ContactData 
-                    
-                />
+                <ContactData/>
+                
                 
                 
                 {/* <label>Content</label>

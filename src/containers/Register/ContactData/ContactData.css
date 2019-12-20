@@ -51,3 +51,12 @@
 .parent input {
     align-content: left;
 }
+.inputField {
+    background-color: #D2B4DE;
+    margin-top: 0px;
+    margin-left: 0px;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
