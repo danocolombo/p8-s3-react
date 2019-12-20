@@ -7,9 +7,11 @@
 }
 .fName{
     background-color: #D2B4DE;
-    
-    padding: 10px 0px 3px 10px;
     text-align: left;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
@@ -53,10 +55,7 @@
 }
 .inputField {
     background-color: #D2B4DE;
-    margin-top: 0px;
-    margin-left: 0px;
+    padding-left:15px;
     text-align: left;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
+    top: -10;
 }
