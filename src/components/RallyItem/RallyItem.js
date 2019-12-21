@@ -9,9 +9,9 @@ const rallyitem = (props) => {
     <section>
         
         <div className={classes.RallyItem}>{props.eventDate}
-        </div>
-        <div className="ChurchName" onClick={props.clicked}>{props.locationName}
         <button className="registerButton" onClick={props.clicked}>REGISTER</button></div>
+        <div className="ChurchName" onClick={props.clicked}>{props.locationName}
+        </div>
         <div className="ChurchLocation">{props.locationStreet}<br/>
         {props.locationCity},{props.locationState} {props.locationZipcode}</div>
         <br/>

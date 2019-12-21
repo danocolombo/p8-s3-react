@@ -19,9 +19,13 @@
     margin-left: 35px;
 }
 .registerButton {
-    padding: 5px 10px 5px 10px;
+    font-size: .5em;
+    border-radius: 5pt;
+    border-style: solid;
+    border-color: black;
+    padding: 2px 10px 2px 10px;
     margin-left: 10px;
-    vertical-align: middle;
-    color:whitesmoke;
-    background-color: salmon;
+    vertical-align: top;
+    color:black;
+    background-color: yellow;
 }

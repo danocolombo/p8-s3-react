@@ -12,13 +12,20 @@ class Rallies extends Component {
         this.state = {
             data: null,
             rallyevent: [],
+            planets: {}
         }
     }
- 
+    
     componentDidMount () {
         this.getData();
     }
-
+    getData2(){
+        //https://swapi.co/api/planets/4/
+        fetch("https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events")
+            .then(res => res.json())
+            .then(res => this.setState({ planets: res }))
+            .catch(() => this.setState({ hasErrors: true }));
+    }
     getData(){
         let rallyevent = "<p>something went wrong</p>";
         let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
