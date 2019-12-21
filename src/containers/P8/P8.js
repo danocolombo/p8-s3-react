@@ -42,7 +42,7 @@ class P8 extends Component {
             <div style={{height: '100%'}}>
                     <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
                     {sideDrawer}
-                    {backdrop}
+                    {/* {backdrop} */}
                     <Route path="/" exact component={Home} />
                     <Route path="/rallies" component={Rallies} />
                     <Route path="/register" component={Register} />
