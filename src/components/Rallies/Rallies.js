@@ -40,6 +40,7 @@ class Rallies extends Component {
     rallySelectedHandler = (eventID) => {
         // this.setState({selectedRallyDate: eventID});
         console.log("the clicked event was:");
+        // console.log(query.get("id"))
         console.log(eventID);
         window.location.assign('/register?ID='+eventID);
         // window.location.assign('/search/'+this.state.query+'/some-action');
