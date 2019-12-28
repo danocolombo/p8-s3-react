@@ -88,7 +88,8 @@ class Rallies extends Component {
                     .map((item)=>
                         <RallyItem 
                             key={item.id} 
-                            eventID={item.id}
+                            eventID={item.eventId}
+                            jones={item.id}
                             eventDate={item.eventDate} 
                             locationName={item.churchName}
                             locationStreet={item.churchStreet}
