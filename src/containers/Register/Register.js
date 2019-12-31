@@ -1,66 +1,108 @@
-import React from "react";
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Link,
   useLocation
 } from "react-router-dom";
-import EventInfo from './CRDetails/CRDetails';
-import Aux from '../../hoc/Aux/Aux';
+import RallyItem from '../../components/RallyItem/RallyItem';
 
-export default function register() {
-  
-  
-  return (
-    <Router>
-      <HeaderSection />
-    </Router>
-  );
+class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+        data: null,
+        rallyevent: [],
+        venueId: 0
+    }
 }
 
-// A custom hook that builds on useLocation to parse
-// the query string for you.
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 
-function HeaderSection() {
-  let query = useQuery();
+  componentDidMount(){
+    this.getVenueInfo2();
 
-  return (
-    <div>
+  }
+  getVenueInfo3 = () => {
+
+
+
+
+
+  }
+  getVenueInfo2 = () => {
+    //this will fetch by post with the eventID
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    this.venueId = params.get('id');
+
+    fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event",
+      {
+        method: 'POST',
+        mode: 'cors',
+        headers: {'Content-Type': 'application/json',
+          'Accept': 'application/json'},
+        body: JSON.stringify({
+              id: 2
+           }) 
+      })
+      .then(res => res.json())
+      .catch(() => this.setState({ hasErrors: true }));
+    
+      console.log('made it past fetch');
+      console.log(this.state.hasErrors);
+    
+    
+
+  }
+
+  getVenueInfo = () => {
+    //this is to load the venue info from the id passed into the page
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    this.venueId = params.get('id');
+    console.log("id:" + params.get('id'));
+
+    let rallyevent = "<p>something went wrong</p>";
+    fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events/shortlist")
+          .then((resp)=>{
+              resp.json().then((res)=>{
+                  this.setState({ rallyevent: this.state.rallyevent.push("A")})                    
+                  this.setState({data: res.Items})
+              })
+          });
+    
+  }
+  render() {
+    return (
       <div>
-        <h2>Rally Registration</h2>
-		    <EventInfo id={query.get("id")} />
-        
+        <h3>Register... oh boy</h3>
+        <ChurchInfo/>
+        {
+                    this.state.data ?
+                    this.state.data
+                    .map((item)=>
+                        <RallyItem 
+                            key={item.id} 
+                            eventID={item.eventId}
+                            eventDate={item.eventDate} 
+                            locationName={item.churchName}
+                            locationStreet={item.churchStreet}
+                            locationCity={item.churchCity}
+                            locationState={item.churchState}
+                            locationZipcode={item.churchZipcode}
+                            clicked={() => this.rallySelectedHandler(item.id)}
+                        />
+                    )
+                    :
+                    <h3>Getting data from cloud, just a moment.</h3>
+                }
       </div>
-    </div>
-  );
+    )
+  }
 }
+export default Register;
 
-function Child({ id }) {
+function ChurchInfo() {
   return (
-    <div>
-      {id ? (
-        <h3>
-          The <code>name</code> in the query string is &quot;{id}
-          &quot;
-        </h3>
-      ) : (
-        <h3>There is no name in the query string</h3>
-      )}
-    </div>
-  );
-}
-function LocationInfo({ id }) {
-  return (
-    <div>
-      <div>
-        <hr/>
-		<div>Location Info</div>
-		
-		<div>We will display info about event { id }</div>
-		
-      </div>
-    </div>
+    <h2>ChurchInfo</h2>
   );
 }

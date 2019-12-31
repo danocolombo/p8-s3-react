@@ -17,24 +17,32 @@ class Rallies extends Component {
     }
     
     componentDidMount () {
-        this.getData();
+        this.getData0();
+       
     }
-    getData2(){
-        //https://swapi.co/api/planets/4/
-        fetch("https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events")
-            .then(res => res.json())
-            .then(res => this.setState({ planets: res }))
-            .catch(() => this.setState({ hasErrors: true }));
+
+    getData0(){
+        //--------------------------------------------
+        // this calls the RDS database
+        //--------------------------------------------
+        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events')
+            .then(response => response.json())
+            .then(data => this.setState({data}));
     }
+    
     getData(){
+        //--------------------------------------------
+        // this calls the dynamodb database
+        //--------------------------------------------
         let rallyevent = "<p>something went wrong</p>";
-        let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
+        // https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events
+        fetch("https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events")
             .then((resp)=>{
                 resp.json().then((res)=>{
                     this.setState({ rallyevent: this.state.rallyevent.push("A")})                    
                     this.setState({data: res.Items})
                 })
-            })
+            });
     }
     
     rallySelectedHandler = (eventID) => {
@@ -89,7 +97,6 @@ class Rallies extends Component {
                         <RallyItem 
                             key={item.id} 
                             eventID={item.eventId}
-                            jones={item.id}
                             eventDate={item.eventDate} 
                             locationName={item.churchName}
                             locationStreet={item.churchStreet}
