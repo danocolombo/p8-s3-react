@@ -2,16 +2,27 @@ import React, { Component } from 'react'
 import './ContactData.css'
 
 class ContactData extends Component {
+    constructor(){
+        super();
+        this.state = {
+            firstName: "",
+            lastName: "",
+            phoneNumber: "",
+            email: "",
+        };
+        this.onFieldChange = this.onFieldChange.bind(this);
+    }
+    onFieldChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
     render() {
         return (
-            <div className="parent">
-                <div className="fName"><p className="labels">First Name</p>
-                <br/><input className="inputField" type="text" /></div>
-                <div className="lName"><p className="labels">Last Name</p><p><input type="text" /></p></div>
-                <div className="phone"><p className="labels">Phone</p><p><input type="text" /></p></div>
-                <div className="email"><p className="labels">Email</p><p><input type="text" /></p></div>
-                
-            </div>
+            <form>
+                <input type="text" name="firstName" value={this.state.firstName} placeHolder="First Name" onChange={this.onFieldChange} />
+                <input type="text" name="lastName" value={this.state.lastName} placeHolder="Last Name" onChange={this.onFieldChange} />
+            </form>
         )
     }
 }

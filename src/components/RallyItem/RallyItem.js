@@ -14,7 +14,7 @@ const rallyitem = (props) => {
                     search: target
                 }}><button className="registerButton">REGISTER</button></Link>
             </div>
-            <div className="ChurchName" onClick={props.clicked}>{props.locationName}  -- 
+            <div className="ChurchName" onClick={props.clicked}>{props.locationName} 
             </div>
             <div className="ChurchLocation">{props.locationStreet}<br/>
             {props.locationCity},{props.locationState} {props.locationZipcode}</div>

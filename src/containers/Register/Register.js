@@ -5,6 +5,7 @@ import {
   useLocation
 } from "react-router-dom";
 import RallyItem from '../../components/RallyItem/RallyItem';
+import ContactInfo from './ContactData/ContactData';
 
 class Register extends Component {
   constructor() {
@@ -75,33 +76,15 @@ class Register extends Component {
     return (
       <div>
         <h3>Register... oh boy</h3>
-        <ChurchInfo/>
-        {
-                    this.state.data ?
-                    this.state.data
-                    .map((item)=>
-                        <RallyItem 
-                            key={item.id} 
-                            eventID={item.eventId}
-                            eventDate={item.eventDate} 
-                            locationName={item.churchName}
-                            locationStreet={item.churchStreet}
-                            locationCity={item.churchCity}
-                            locationState={item.churchState}
-                            locationZipcode={item.churchZipcode}
-                            clicked={() => this.rallySelectedHandler(item.id)}
-                        />
-                    )
-                    :
-                    <h3>Getting data from cloud, just a moment.</h3>
-                }
+        <ContactInfo/>
+        
       </div>
     )
   }
 }
 export default Register;
 
-function ChurchInfo() {
+function ChurchInfo2() {
   return (
     <h2>ChurchInfo</h2>
   );
