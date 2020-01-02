@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Link,
   useLocation
 } from "react-router-dom";
-import { connect } from 'react-redux';
+
 import RallyItem from '../../components/RallyItem/RallyItem';
 import ContactInfo from './ContactData/ContactData';
+import RallyInfo from '../../components/RallyItem/RallyInfo';
 
 class Register extends Component {
   componentDidMount(){
-    // this.getVenueInfo2();
+    this.getVenueInfo2();
 
   }
   getVenueInfo3 = () => {
@@ -18,10 +20,11 @@ class Register extends Component {
   }
   getVenueInfo2 = () => {
     // //this will fetch by post with the eventID
-    // let search = window.location.search;
-    // let params = new URLSearchParams(search);
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
     // this.venueId = params.get('id');
-
+    this.props.setEventID(params.get('id'));
+    
     // fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event",
     //   {
     //     method: 'POST',
@@ -64,11 +67,11 @@ class Register extends Component {
       <div>
         <h3>Register... oh boy</h3>
         <div>Event ID: {this.props.eid}</div>
-        <EventInfo eid={this.props.eventId}/>
-        <ContactInfo eid={this.props.eventId}/>
-        
+        <ContactInfo />
+        <RallyInfo value={this.props.eid} />
+        {console.log('eid:' + this.props.eid)}
       </div>
-    )
+    );
   }
 }
 //==============================
@@ -76,21 +79,22 @@ class Register extends Component {
 //==============================
 const mapStateToProps = state => {
   return {
-      eid: state.eventId,
+      eid: state.eventId
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
       
-      onEventIdUpdate: (id) => dispatch({type: 'SET_EVENT_ID', val: id}),
+      setEventID: (id) => dispatch({type: 'SET_EVENT_ID', val: id}),
   };
 };
-export default Register;
+export default  connect(mapStateToProps, mapDispatchToProps)(Register);
 
 function EventInfo() {
   return (
     <h2>ChurchInfo</h2>
+
     
   );
 }
