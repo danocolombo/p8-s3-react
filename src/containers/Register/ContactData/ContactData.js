@@ -20,8 +20,8 @@ class ContactData extends Component {
     render() {
         return (
             <form>
-                <input type="text" name="firstName" value={this.state.firstName} placeHolder="First Name" onChange={this.onFieldChange} />
-                <input type="text" name="lastName" value={this.state.lastName} placeHolder="Last Name" onChange={this.onFieldChange} />
+                <input type="text" name="firstName" value={this.state.firstName} placeholder="First Name" onChange={this.onFieldChange} />
+                <input type="text" name="lastName" value={this.state.lastName} placeholder="Last Name" onChange={this.onFieldChange} />
             </form>
         )
     }

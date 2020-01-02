@@ -12,7 +12,7 @@ import RallyInfo from '../../components/RallyItem/RallyInfo';
 
 class Register extends Component {
   componentDidMount(){
-    this.getVenueInfo2();
+    this.getVenueInfo();
 
   }
   getVenueInfo3 = () => {
@@ -47,25 +47,25 @@ class Register extends Component {
 
   getVenueInfo = () => {
     // //this is to load the venue info from the id passed into the page
-    // let search = window.location.search;
-    // let params = new URLSearchParams(search);
-    // this.venueId = params.get('id');
-    // console.log("id:" + params.get('id'));
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+  
+    this.props.setEventID(params.get('id'));
 
-    // let rallyevent = "<p>something went wrong</p>";
-    // // fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events/shortlist")
-    // //       .then((resp)=>{
-    // //           resp.json().then((res)=>{
-    // //               this.setState({ rallyevent: this.state.rallyevent.push("A")})                    
-    // //               this.setState({data: res.Items})
-    // //           })
-    // //       });
+    let rallyevent = "<p>something went wrong</p>";
+    let fetchTarget = "https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event/retrieve?eventId=" + this.props.eid;
+    fetch(fetchTarget)
+          .then((resp)=>{
+              resp.json().then((res)=>{                    
+                  this.props.setEventInfo(res)
+              })
+          });
     
   }
   render() {
     return (
       <div>
-        <h3>Register... oh boy</h3>
+        <h3>REGISTRATION</h3>
         <div>Event ID: {this.props.eid}</div>
         <ContactInfo />
         <RallyInfo value={this.props.eid} />
@@ -85,7 +85,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      
+      setEventInfo: (rally) => dispatch({type: 'SET_RALLY', rally: rally}),
       setEventID: (id) => dispatch({type: 'SET_EVENT_ID', val: id}),
   };
 };
