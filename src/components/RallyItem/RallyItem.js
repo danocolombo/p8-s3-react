@@ -19,16 +19,6 @@ const rallyitem = (props) => {
             <div className="ChurchLocation">{props.locationStreet}<br/>
             {props.locationCity},{props.locationState} {props.locationZipcode}</div>
 
-            {/* <div>
-                {props.key}<br/>
-                {props.eventID}<br/>
-                {props.eventDate}<br/>
-                {props.locationName}<br/>
-                {props.locationStreet}<br/>
-                {props.locationCity}<br/>
-                {props.locationState}<br/>
-                {props.locationZipcode}<br/>
-            </div> */}
         </div>
     </section>
     );

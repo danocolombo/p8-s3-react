@@ -15,9 +15,7 @@ class Register extends Component {
     this.getVenueInfo();
 
   }
-  getVenueInfo3 = () => {
-
-  }
+  
   getVenueInfo2 = () => {
     // //this will fetch by post with the eventID
     let search = window.location.search;
@@ -70,6 +68,7 @@ class Register extends Component {
         <ContactInfo />
         <RallyInfo value={this.props.eid} />
         {console.log('eid:' + this.props.eid)}
+        {console.log('rally:' + this.props.rally.eDate)}
       </div>
     );
   }
@@ -79,7 +78,8 @@ class Register extends Component {
 //==============================
 const mapStateToProps = state => {
   return {
-      eid: state.eventId
+      eid: state.eventId,
+      rally: state.rally
   };
 };
 

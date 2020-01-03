@@ -1,5 +1,6 @@
 const initialState = {
-    eventId: 0
+    eventId: 0,
+    rally: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 eventId: action.val
+            }
+        case 'SET_RALLY':
+            return {
+                ...state,
+                rally: action.rally
             }
         
     }
