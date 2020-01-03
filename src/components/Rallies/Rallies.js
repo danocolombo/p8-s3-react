@@ -12,27 +12,43 @@ class Rallies extends Component {
         this.state = {
             data: null,
             rallyevent: [],
+            planets: {}
         }
     }
- 
+    
     componentDidMount () {
-        this.getData();
+        this.getData0();
+       
     }
 
+    getData0(){
+        //--------------------------------------------
+        // this calls the RDS database
+        //--------------------------------------------
+        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events')
+            .then(response => response.json())
+            .then(data => this.setState({data}));
+    }
+    
     getData(){
+        //--------------------------------------------
+        // this calls the dynamodb database
+        //--------------------------------------------
         let rallyevent = "<p>something went wrong</p>";
-        let data = fetch('https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events')
+        // https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events
+        fetch("https://ou1b9hxpma.execute-api.us-east-1.amazonaws.com/UAT/events")
             .then((resp)=>{
                 resp.json().then((res)=>{
                     this.setState({ rallyevent: this.state.rallyevent.push("A")})                    
                     this.setState({data: res.Items})
                 })
-            })
+            });
     }
     
     rallySelectedHandler = (eventID) => {
         // this.setState({selectedRallyDate: eventID});
         console.log("the clicked event was:");
+        // console.log(query.get("id"))
         console.log(eventID);
         window.location.assign('/register?ID='+eventID);
         // window.location.assign('/search/'+this.state.query+'/some-action');
@@ -79,14 +95,14 @@ class Rallies extends Component {
                     this.state.data
                     .map((item)=>
                         <RallyItem 
-                            key={item.id} 
-                            eventID={item.id}
+                            key={item.eventId} 
+                            eventID={item.eventId}
                             eventDate={item.eventDate} 
-                            locationName={item.locationName}
-                            locationStreet={item.locationStreet}
-                            locationCity={item.locationCity}
-                            locationState={item.locationState}
-                            locationZipcode={item.locationZipcode}
+                            locationName={item.churchName}
+                            locationStreet={item.churchStreet}
+                            locationCity={item.churchCity}
+                            locationState={item.churchState}
+                            locationZipcode={item.churchZipcode}
                             clicked={() => this.rallySelectedHandler(item.id)}
                         />
                     )

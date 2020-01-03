@@ -1,20 +1,25 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-//import Button from '../UI/Button/Button';
-import Button from '@material-ui/core/Button';
-import classes from './RallyItem.css';
-
+import { Link } from 'react-router-dom';
+import './RallyItem.css';
 const rallyitem = (props) => {
+    let target = 'id=' + props.eventID;
     return (
     <section>
-        
-        <div className={classes.RallyItem}>{props.eventDate}
+        <div className='RallyBox'>
+            <div className='EventDate'>{props.eventDate.substr(0,10)}
+            <Link 
+                to={{
+                    pathname: "/register",
+                    search: target
+                }}><button className="registerButton">REGISTER</button></Link>
+            </div>
+            <div className="ChurchName" onClick={props.clicked}>{props.locationName} 
+            </div>
+            <div className="ChurchLocation">{props.locationStreet}<br/>
+            {props.locationCity},{props.locationState} {props.locationZipcode}</div>
+
         </div>
-        <div className="ChurchName" onClick={props.clicked}>{props.locationName}
-        <Button variant="contained" color="secondary" onClick={props.clicked} className={classes.RegisterButton}>REGISTER</Button></div>
-        <div className="ChurchLocation">{props.locationStreet}<br/>
-        {props.locationCity},{props.locationState} {props.locationZipcode}</div>
-        <br/>
     </section>
     );
 }

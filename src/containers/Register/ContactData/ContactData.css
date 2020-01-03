@@ -1,0 +1,61 @@
+.parent{
+    background-color: #A569BD;
+    margin: 10px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column wrap;
+}
+.fName{
+    background-color: #D2B4DE;
+    text-align: left;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
+.labels {
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+}
+.lName{
+    background-color: #D2B4DE;
+    top: 0px;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.email{
+    background-color: #D2B4DE;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.phone{
+    background-color: #D2B4DE;
+    padding-right: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.parent input {
+    align-content: left;
+}
+.inputField {
+    background-color: #D2B4DE;
+    padding-left:15px;
+    text-align: left;
+    top: -10;
+}

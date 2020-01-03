@@ -1,56 +1,100 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-import ContactData from './ContactData/ContactData';
+import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Link,
+  useLocation
+} from "react-router-dom";
 
-import './Register.css';
+import RallyItem from '../../components/RallyItem/RallyItem';
+import ContactInfo from './ContactData/ContactData';
+import RallyInfo from '../../components/RallyItem/RallyInfo';
 
 class Register extends Component {
-    state = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-    }
-    componentDidMount () {
-        //console.log(this.props);
+  componentDidMount(){
+    this.getVenueInfo();
 
-    }
-    getEventData(){
-        
-    }
-    registerDataHandler = () => {
-        // const data = {
-        //     title: this.state.title,
-        //     body: this.state.content,
-        //     author: this.state.author
-        // };
-        // axios.post('/posts', data)
-        //     .then(response => {
-        //         console.log(response);
-        //     });
-    }
+  }
+  
+  getVenueInfo2 = () => {
+    // //this will fetch by post with the eventID
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    // this.venueId = params.get('id');
+    this.props.setEventID(params.get('id'));
+    
+    // fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event",
+    //   {
+    //     method: 'POST',
+    //     mode: 'cors',
+    //     headers: {'Content-Type': 'application/json',
+    //       'Accept': 'application/json'},
+    //     body: JSON.stringify({
+    //           id: 2
+    //        }) 
+    //   })
+    //   .then(res => res.json())
+    //   .catch(() => this.setState({ hasErrors: true }));
+    
+    //   console.log('made it past fetch');
+    //   console.log(this.state.hasErrors);
+    
+    
 
-    render () {
-        return (
-            <div className="Register">
-                
-                <h1>We are registering!!</h1>
-                <ContactData 
-                    
-                />
-                
-                
-                {/* <label>Content</label>
-                <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
-                <label>Author</label>
-                <select value={this.state.author} onChange={(event) => this.setState({author: event.target.value})}>
-                    <option value="Max">Max</option>
-                    <option value="Manu">Manu</option>
-                </select> */}
-                <button onClick={this.registerDataHandler}>Register</button>
-            </div>
-        );
-    }
+  }
+
+  getVenueInfo = () => {
+    // //this is to load the venue info from the id passed into the page
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+  
+    this.props.setEventID(params.get('id'));
+
+    let rallyevent = "<p>something went wrong</p>";
+    let fetchTarget = "https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event/retrieve?eventId=" + this.props.eid;
+    fetch(fetchTarget)
+          .then((resp)=>{
+              resp.json().then((res)=>{                    
+                  this.props.setEventInfo(res)
+              })
+          });
+    
+  }
+  render() {
+    return (
+      <div>
+        <h3>REGISTRATION</h3>
+        <div>Event ID: {this.props.eid}</div>
+        <ContactInfo />
+        <RallyInfo value={this.props.eid} />
+        {console.log('eid:' + this.props.eid)}
+        {console.log('rally:' + this.props.rally.eDate)}
+      </div>
+    );
+  }
 }
+//==============================
+// start redux definitions
+//==============================
+const mapStateToProps = state => {
+  return {
+      eid: state.eventId,
+      rally: state.rally
+  };
+};
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+  return {
+      setEventInfo: (rally) => dispatch({type: 'SET_RALLY', rally: rally}),
+      setEventID: (id) => dispatch({type: 'SET_EVENT_ID', val: id}),
+  };
+};
+export default  connect(mapStateToProps, mapDispatchToProps)(Register);
+
+function EventInfo() {
+  return (
+    <h2>ChurchInfo</h2>
+
+    
+  );
+}

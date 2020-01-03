@@ -4,11 +4,20 @@
     justify-content: center;
     width: 80%;
     margin: auto;
+    
+}
+.RallyBox {
+    border: 1px solid rgb(109, 84, 84);
+    box-shadow: 0 2px 3px rgb(216, 146, 146);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    max-width: 400px;
 }
 .EventDate {
     font-size: 1.2em;
     font-weight: bolder;
-    margin-left: 20px;
+    margin-left: 25px;
+    padding-top: 10px;
 }
 .ChurchName {
     font-size: 1.5em;
@@ -17,7 +26,16 @@
 }
 .ChurchLocation {
     margin-left: 35px;
+    margin-bottom: 10px;
 }
-.RegisterButton {
-    padding-left:15px;
+.registerButton {
+    font-size: .5em;
+    border-radius: 5pt;
+    border-style: solid;
+    border-color: black;
+    padding: 2px 10px 2px 10px;
+    margin-left: 10px;
+    vertical-align: top;
+    color:black;
+    background-color: yellow;
 }
