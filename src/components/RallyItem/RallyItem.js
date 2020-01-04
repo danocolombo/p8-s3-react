@@ -12,7 +12,7 @@ const rallyitem = (props) => {
                 to={{
                     pathname: "/register",
                     search: target
-                }}><button className="registerButton">REGISTER</button></Link>
+                }}><button className="registerButton">DETAILS</button></Link>
             </div>
             <div className="ChurchName" onClick={props.clicked}>{props.locationName} 
             </div>

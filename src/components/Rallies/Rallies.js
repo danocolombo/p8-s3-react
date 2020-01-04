@@ -25,7 +25,7 @@ class Rallies extends Component {
         //--------------------------------------------
         // this calls the RDS database
         //--------------------------------------------
-        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events')
+        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events/active/approved')
             .then(response => response.json())
             .then(data => this.setState({data}));
     }
