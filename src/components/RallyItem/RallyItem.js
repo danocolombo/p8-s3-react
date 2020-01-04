@@ -10,7 +10,7 @@ const rallyitem = (props) => {
             <div className='EventDate'>{props.eventDate.substr(0,10)}
             <Link 
                 to={{
-                    pathname: "/register",
+                    pathname: "/rally",
                     search: target
                 }}><button className="registerButton">DETAILS</button></Link>
             </div>
@@ -18,7 +18,7 @@ const rallyitem = (props) => {
             </div>
             <div className="ChurchLocation">{props.locationStreet}<br/>
             {props.locationCity},{props.locationState} {props.locationZipcode}</div>
-
+            
         </div>
     </section>
     );

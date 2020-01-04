@@ -9,6 +9,7 @@ import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 import Home from '../../components/Home/Home';
 import Rallies from '../../components/Rallies/Rallies';
+import Rally from '../../components/Rally/Rally';
 // import MenuBar from '../../components/Navigation/Toolbar/MenuBar';
 // import Menu from '@material-ui/core/Menu';
 // import MenuItem from '@material-ui/core/MenuItem';
@@ -46,6 +47,7 @@ class P8 extends Component {
                     <Route path="/" exact component={Home} />
                     <Route path="/rallies" component={Rallies} />
                     <Route path="/register" component={Register} />
+                    <Route path="/rally" component={Rally} />
                 
             </div>
         );

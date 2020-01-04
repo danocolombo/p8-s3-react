@@ -1,4 +1,4 @@
-.Rally {
+.Rally2 {
     width: 250px;
     padding: 16px;
     text-align: center;
@@ -8,18 +8,32 @@
     box-sizing: border-box;
     cursor: pointer;
 }
-
+h1 {
+	font-style: italic;
+	font-weight: bolder;
+	font-size: 40px;
+}
+h2 {
+	font-weight: bold;
+    font-size: 2em;
+    margin-left: 0px;
+}
 .Rally:hover,
 .Rally:active {
     background-color: #C0DDF5;
 }
-
-.Host {
-    margin: 16px 0;
-    color: #ccc;
+.Title {
+    margin: 15px 15px 10px 25px;
+    color: blue;
 }
+.Venue {
+    width: 400px;
+    padding: 16px;
+    text-align: left;
+    border: 1px solid #C0C0C0;
+    box-shadow: 0 2px 3px #808080;
+    margin: 10px;
+    box-sizing: border-box;
+    
 
-.Rep {
-    margin: 16px 0;
-    color: #ccc;
 }
