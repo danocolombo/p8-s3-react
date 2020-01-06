@@ -6,10 +6,8 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-
-// import RallyItem from '../../components/RallyItem/RallyItem';
-//import ContactInfo from './ContactData/ContactData';
-// import RallyInfo from '../../components/RallyItem/RallyInfo';
+import EventTimes from '../UI/EventTimes/EventTimes';
+import EventDate from '../UI/EventDate/EventDate';
 import classes from './Rally.css';
 class Register extends Component {
   componentDidMount(){
@@ -29,9 +27,10 @@ class Register extends Component {
         eventId: theID
       }
     })
-    .then(res => this.props.setEventDetails(res))
-    .catch(err => console.error(err))
-
+    .then(res => this.props.setEventDetails(res.data[0]))
+    .catch(err => console.error(err));
+    //.then(res => console.log(res.data[0]))
+    //.then(res => this.props.setEventDetails(res))
   }
   // saveVenueToRedux = (res) => {
   //   this.props.setEventDetails(
@@ -44,36 +43,37 @@ class Register extends Component {
       <div>
         <h1>P8 Rally Information</h1>
         <h2>Venue Information</h2>
-        <div className="Venue">Event ID: {this.props.eid}</div>
-        {/* <RallyInfo value={this.props.eid} /> */}
+        <div className="Venue">
+          <EventDate eventDate={this.props.eDate} />
+          
+          <div>{this.props.vName}</div>
+          <div>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
+          <EventTimes startTime={this.props.eStart} endTime={this.props.eEnd}/>
+          <div>{this.props.eDate}</div>
+        </div>
         {console.log('eid:' + this.props.eid)}
-        {console.log('rally:' + this.props.rally.eDate)}
+        {console.log('eDate:' + this.props.eDate)}
+        {console.log('starttime:' + this.props.eStart)}
+        {/* {console.log('rally:' + this.props.rally.eDate)} */}
       </div>
     );
   }
 }
 //==============================
-// start redux definitions
+// start redux definitions     <div className='Venue'>Event ID: {this.props.eid}</div>
 //==============================
 const mapStateToProps = state => {
   return {
       eid: state.eventId,
       eDate: state.eventDate,
-      eStartTime: state.eventStart,
-      eEndTime: state.eventEnd,
+      eStart: state.eventStartTime,
+      eEnd: state.eventEndTime,
       eNotes: state.eventNotes,
-      vName: state.venueName,
+      vName: state. venueName,
       vStreet: state.venueStreet,
       vCity: state.venueCity,
       vState: state.venueState,
       vZipcode: state.venueZipcode,
-      vContact: state.venueContact,
-      vEmail: state.venueEmail,
-      vPhone: state.venuePhone,
-      vMapLink: state.venueMapLink,
-      sRepName: state.stateRepName,
-      sRepEmail: state.stateRepEmail,
-      sRepPhone: state.stateRepPhone
   };
 };
 
@@ -81,11 +81,11 @@ const mapDispatchToProps = dispatch => {
   return {
       setEventInfo: (rally) => dispatch({type: 'SET_RALLY', rally: rally}),
       setEventID: (id) => dispatch({
-        type: 'SET_EVENT_DETAILS', 
+        type: 'SET_EVENT_ID', 
         val: id
       }),
       setEventDetails: (r) => dispatch({
-        type: 'SET_EVENT_DATE', 
+        type: 'SET_EVENT_DETAILS',
         eDate: r.eDate,
         eStart: r.eStartTime,
         eEnd: r.eEndTime,
@@ -95,14 +95,7 @@ const mapDispatchToProps = dispatch => {
         vCity: r.churchCity,
         vState: r.churchState,
         vZipcode: r.churchZipcode,
-        vContact: r.churchContactName,
-        vPhone: r.churchContactPhone,
-        vEmail: r.churchContactEmail,
-        vMapLink: r.mapLink,
-        stateRepName: r.stateRepName,
-        stateRepEmail: r.stateRepEmail,
-        stateRepPhone: r.stateRepPhone
-      }),
+      })
   };
 };
 export default  connect(mapStateToProps, mapDispatchToProps)(Register);

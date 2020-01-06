@@ -7,7 +7,7 @@ const rallyitem = (props) => {
     return (
     <section>
         <div className='RallyBox'>
-            <div className='EventDate'>{props.eventDate.substr(0,10)}
+            <div className='RallyDate'>{props.eventDate.substr(0,10)}
             <Link 
                 to={{
                     pathname: "/rally",

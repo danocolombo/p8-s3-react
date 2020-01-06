@@ -1,7 +1,7 @@
 .RallyItem {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    /* justify-content: center; */
     width: 80%;
     margin: auto;
     
@@ -13,11 +13,12 @@
     margin-right: 10px;
     max-width: 400px;
 }
-.EventDate {
+.RallyDate {
     font-size: 1.2em;
     font-weight: bolder;
     margin-left: 25px;
     padding-top: 10px;
+    text-align: left;
 }
 .ChurchName {
     font-size: 1.5em;
