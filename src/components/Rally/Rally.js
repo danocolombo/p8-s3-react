@@ -31,6 +31,7 @@ class Register extends Component {
     .catch(err => console.error(err));
     //.then(res => console.log(res.data[0]))
     //.then(res => this.props.setEventDetails(res))
+    
   }
   // saveVenueToRedux = (res) => {
   //   this.props.setEventDetails(
@@ -46,8 +47,8 @@ class Register extends Component {
         <div className="Venue">
           <EventDate eventDate={this.props.eDate} />
           
-          <div>{this.props.vName}</div>
-          <div>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
+          <div className="VenueName">{this.props.vName}</div>
+          <div className="VenueAddress">{this.props.vStreet}<br/>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
           <EventTimes startTime={this.props.eStart} endTime={this.props.eEnd}/>
           <div>{this.props.eDate}</div>
         </div>

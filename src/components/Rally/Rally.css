@@ -39,3 +39,10 @@ h2 {
     text-align: center;
     padding-top: 10px;
 }
+.VenueName {
+    padding-top: 10px;
+    margin-left:35px;
+}
+.VenueAddress {
+    margin-left:35px;
+}
