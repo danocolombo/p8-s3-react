@@ -1,0 +1,83 @@
+import React from 'react';
+import classes from './EventDate.css';
+
+// function convertTimes (s, f){
+//     return 'blah, blah, blah';
+// }
+// {textDecoration: todo.isCompleted ? 'line-through' : ''}
+function EventDate(props) {
+    const transformDate = (theString) => {
+
+    }
+    const extractDay = (theString) => {
+        // takes the database string for event date and returns the date (day) of the event
+        // YYYY-MM-DDT00:000:00:000Z
+    
+        var tmp = theString + 'Z';
+        {console.log('in extractDay: ' + theString)}
+        tmp = "2020-01-06T00:00:00.000Z";
+        var dbDate = new Date(tmp);
+        return dbDate.getDate();
+    }
+    const displayDate = (theString) => {
+        var tmp = theString + 'Z';
+        {console.log('in displayDate: ' + theString)}
+        tmp = "2020-01-06T00:00:00.000Z";
+        var dbDate = new Date(tmp);
+        var theMonth = dbDate.getMonth().toString() + 1;
+        var theDay = dbDate.getDate().toString();
+        var theYear = dbDate.getFullYear().toString();
+        var theDate = theMonth.concat("/");
+        theDate = theDate.concat(theDay);
+        theDate = theDate.concat("/");
+        theDate = theDate.concat(theYear);
+        return theDate;
+
+    }
+    const displayWeekday = (theString) => {
+        // takes the database string for event date and returns the date (day) of the event
+        // YYYY-MM-DDT00:000:00:000Z
+        var tmp = theString + 'Z';
+        {console.log('in displayWeekday: ' + theString)}
+        var dbDate = new Date(theString);
+        var dayOfWeek = dbDate.getDay();
+        console.log("DOW:" + dayOfWeek);
+        return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+        // var dow = isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+        // var returnValue = dow;
+
+        return dbDate.get;
+    }
+    const convertTimes = (s, e) => {
+        var sd = s.replace(":", ".");
+        var startTime = parseFloat(sd);
+        var displayStart = (startTime < 13 ? startTime : startTime - 12);
+        var ed = e.replace(":", ".");
+        var endTime = parseFloat(ed);
+        var displayEnd = (endTime < 13 ? endTime : endTime - 12);;
+        var returnString = "";
+        if (startTime < 12.00){
+            returnString = returnString + displayStart.toFixed(2) + " AM to ";
+        }else{
+            returnString = returnString + displayStart.toFixed(2) + " PM to ";
+        }
+        if (endTime < 12){
+            returnString = returnString + displayEnd.toFixed(2) + " AM";
+        }else{
+            returnString = returnString + displayEnd.toFixed(2) + " PM";
+        }
+
+        return returnString;
+    }
+    return (
+        <div className="TheEvent">
+        <div>{transformDate}</div>  
+        <div><font className="EventDay" >{extractDay({transformDate})}</font>
+            <font className="EventDOW">{displayWeekday(props.eventDate)} </font>
+            <font className="EventDate">{displayDate(props.eventDate)}</font>
+        </div>
+        </div>
+    )
+}
+export default EventDate;
+

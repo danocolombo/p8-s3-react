@@ -1,0 +1,34 @@
+.EventDay {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bolder;
+    background-color: #7B68EE;
+    border: 3px solid #6A5ACD;
+    box-shadow: 0 2px 3px #808080;
+    margin-left: 0px;
+    
+    padding: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    height: 45px;
+}
+.EventDate {
+    /* this is the month/day/year */
+    font-size: 1.5em;
+    color: blue;
+    margin-left: 0px;
+    text-align: right;
+    padding-left:0px;
+}
+.TheEvent {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+.EventDOW {
+    font-size: 1.5em;
+    color: blue;
+    padding-left:20px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
