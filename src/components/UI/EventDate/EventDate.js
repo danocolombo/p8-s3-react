@@ -10,16 +10,22 @@ function extractDay (theString) {
     // YYYY-MM-DDT00:000:00:000Z
 
     var tmp = theString + 'Z';
-    {console.log('in extractDay: ' + theString)}
+  
     tmp = "2020-01-06T00:00:00.000Z";
-    var dbDate = new Date(theString);
+    var theDate = theString.substr(0,10);
+
+    var dbDate = new Date(theDate.replace("-", "/"));
+    var displayNumber = dbDate.getDate();
+    {console.log('in extractDay: ' + theString)}
+    {console.log('in extractDay')}
+    {console.log(displayNumber)}
+    {console.log('==================')}
     return dbDate.getDate();
 }
 function displayDate (theString) {
-    var tmp = theString + 'Z';
-    {console.log('in displayDate: ' + theString)}
-    tmp = "2020-01-06T00:00:00.000Z";
-    var dbDate = new Date(theString);
+    var theDate = theString.substr(0,10);
+
+    var dbDate = new Date(theDate.replace("-", "/"));
     var theMonth = dbDate.getMonth().toString() + 1;
     var theDay = dbDate.getDate().toString();
     var theYear = dbDate.getFullYear().toString();
