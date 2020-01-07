@@ -26,14 +26,27 @@ function displayDate (theString) {
     var theDate = theString.substr(0,10);
 
     var dbDate = new Date(theDate.replace("-", "/"));
-    var theMonth = dbDate.getMonth().toString() + 1;
+    var theMonth = (dbDate.getMonth().toFixed(0) + 1);
     var theDay = dbDate.getDate().toString();
     var theYear = dbDate.getFullYear().toString();
-    var theDate = theMonth.concat("/");
-    theDate = theDate.concat(theDay);
-    theDate = theDate.concat("/");
-    theDate = theDate.concat(theYear);
-    return theDate;
+    var theDateString = theMonth.concat("/");
+    
+    theDateString = theDate.concat(theDay);
+    theDateString = theDateString.concat("/");
+    theDateString = theDate.concat(theYear);
+    {console.log('==================')}
+    {console.log(' displayDate')}
+    {console.log('==================')}
+    {console.log('theDate:' + theDate)}
+    {console.log('theString' + theString)}
+    {console.log('dbDate:' + dbDate)}
+
+    {console.log('theMonth:' + theMonth)}
+    {console.log('theDay' + theDay)}
+    {console.log('theYear' + theYear)}
+    {console.log('theDateString:' + theDate)}
+    {console.log('==================')}
+    return theDateString;
 }
 function displayWeekday (theString) {
     // takes the database string for event date and returns the date (day) of the event
