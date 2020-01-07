@@ -7,18 +7,18 @@ const rallyitem = (props) => {
     return (
     <section>
         <div className='RallyBox'>
-            <div className='EventDate'>{props.eventDate.substr(0,10)}
+            <div className='RallyDate'>{props.eventDate.substr(0,10)}
             <Link 
                 to={{
-                    pathname: "/register",
+                    pathname: "/rally",
                     search: target
-                }}><button className="registerButton">REGISTER</button></Link>
+                }}><button className="registerButton">DETAILS</button></Link>
             </div>
             <div className="ChurchName" onClick={props.clicked}>{props.locationName} 
             </div>
             <div className="ChurchLocation">{props.locationStreet}<br/>
             {props.locationCity},{props.locationState} {props.locationZipcode}</div>
-
+            
         </div>
     </section>
     );

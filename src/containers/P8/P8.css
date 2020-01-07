@@ -26,3 +26,11 @@ body {
 	margin-left: 25px;
 	margin-top: 56px;
 }
+.RogueFooter {
+	margin-top: 20px;
+	margin-left: 0px;
+	padding-bottom: 30px;
+	width: 100%;
+	font-size: .7em;
+	font-style: italic;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RallyItem from '../RallyItem/RallyItem';
 // import axios from '../../axios';
-import Rally from '../../containers/Rally/Rally';
+// import Rally from '../../containers/Rally/Rally';
 import classes from './Rallies.css';
 //import './Rallies.css';
 // import { getDefaultWatermarks } from 'istanbul-lib-report';
@@ -25,7 +25,7 @@ class Rallies extends Component {
         //--------------------------------------------
         // this calls the RDS database
         //--------------------------------------------
-        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events')
+        fetch('https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/events/active/approved')
             .then(response => response.json())
             .then(data => this.setState({data}));
     }
@@ -50,7 +50,7 @@ class Rallies extends Component {
         console.log("the clicked event was:");
         // console.log(query.get("id"))
         console.log(eventID);
-        window.location.assign('/register?ID='+eventID);
+        window.location.assign('/rally?ID='+eventID);
         // window.location.assign('/search/'+this.state.query+'/some-action');
     }
 
@@ -95,8 +95,8 @@ class Rallies extends Component {
                     this.state.data
                     .map((item)=>
                         <RallyItem 
-                            key={item.eventId} 
-                            eventID={item.eventId}
+                            key={item.id} 
+                            eventID={item.id}
                             eventDate={item.eventDate} 
                             locationName={item.churchName}
                             locationStreet={item.churchStreet}
