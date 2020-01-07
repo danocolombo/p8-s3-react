@@ -27,7 +27,7 @@ h2 {
     color: blue;
 }
 .Venue {
-    width: 400px;
+    width: 430px;
     padding: 16px;
     text-align: left;
     border: 1px solid #C0C0C0;
@@ -40,9 +40,30 @@ h2 {
     padding-top: 10px;
 }
 .VenueName {
-    padding-top: 10px;
+    font-size: 1.4em;
+    font-weight: 510;
     margin-left:35px;
+    margin-top: 20px;
 }
 .VenueAddress {
     margin-left:35px;
+    font-size: 1.2em;
+}
+.EventComments {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left:35px;
+}
+.VenueMap {
+    border: 3px solid #6A5ACD;
+    box-shadow: 0 2px 3px #808080;
+    box-sizing: border-box;
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+}
+.StateRepInfo {
+    margin-top:10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
 }

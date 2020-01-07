@@ -50,12 +50,21 @@ class Register extends Component {
           <div className="VenueName">{this.props.vName}</div>
           <div className="VenueAddress">{this.props.vStreet}<br/>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
           <EventTimes startTime={this.props.eStart} endTime={this.props.eEnd}/>
-          <div>{this.props.eDate}</div>
+          <div className="EventComments" >{this.props.eventNotes}</div>
+          <div className="FurtherInfo">
+            If you need further information, please contact your CR state rep, or you can contact the supporting state rep.<br/>
+          </div>
+          <div className="StateRepInfo">
+            <font className="stateRepName">{this.props.eStateRepName}</font><br/>
+            <font className="stateRepEmail">{this.props.eStateRepEmail}</font><br/>
+            <font className="stateRepPhone">{this.props.eStateRepPhone}</font>
+          </div>
+          <div className="VenueMap">{this.props.vMapLink}</div>
         </div>
-        {console.log('eid:' + this.props.eid)}
+        {/* {console.log('eid:' + this.props.eid)}
         {console.log('eDate:' + this.props.eDate)}
         {console.log('starttime:' + this.props.eStart)}
-        {/* {console.log('rally:' + this.props.rally.eDate)} */}
+        {console.log('rally:' + this.props.rally.eDate)} */}
       </div>
     );
   }
@@ -70,11 +79,15 @@ const mapStateToProps = state => {
       eStart: state.eventStartTime,
       eEnd: state.eventEndTime,
       eNotes: state.eventNotes,
-      vName: state. venueName,
+      eStateRepName: state.eventStateRepName,
+      eStateRepEmail: state.eventStateRepEmail,
+      eStateRepPhone: state.eventStateRepPhone,
+      vName: state.venueName,
       vStreet: state.venueStreet,
       vCity: state.venueCity,
       vState: state.venueState,
       vZipcode: state.venueZipcode,
+      vMapLink: state.venueMapLink,
   };
 };
 
@@ -91,20 +104,16 @@ const mapDispatchToProps = dispatch => {
         eStart: r.eStartTime,
         eEnd: r.eEndTime,
         eNotes: r.eNotes,
+        eStateRepName: r.stateRepName,
+        eStateRepEmail: r.stateRepEmail,
+        eStateRepPhone: r.stateRepPhone,
         vName: r.churchName,
         vStreet: r.churchStreet,
         vCity: r.churchCity,
         vState: r.churchState,
         vZipcode: r.churchZipcode,
+        vMapLink: r.mapLink,
       })
   };
 };
 export default  connect(mapStateToProps, mapDispatchToProps)(Register);
-
-function EventInfo() {
-  return (
-    <h2>ChurchInfo</h2>
-
-    
-  );
-}

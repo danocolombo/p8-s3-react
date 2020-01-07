@@ -48,7 +48,7 @@ class P8 extends Component {
                     <Route path="/rallies" component={Rallies} />
                     <Route path="/register" component={Register} />
                     <Route path="/rally" component={Rally} />
-                
+                    <div className="RogueFooter">Rogue Intel 2020</div>
             </div>
         );
     }

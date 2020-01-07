@@ -4,11 +4,15 @@ const initialState = {
     eventStartTime: "",
     eventEndTime: "",
     eventNotes: "",
+    eventStateRepName: "",
+    eventStateRepEmail: "",
+    eventStateRepPhone: "",
     venueName: "",
     venueStreet: "",
     venueCity: "",
     venueState: "",
     venueZipcode: "",
+    venueMapLink: "",
 }
 
 const reducer = (state = initialState, action) => {
@@ -30,12 +34,17 @@ const reducer = (state = initialState, action) => {
                 eventStartTime: action.eStart,
                 eventEndTime: action.eEnd,
                 eventNotes: action.eNotes,
+                eventStateRepName: action.eStateRepName,
+                eventStateRepEmail: action.eStateRepEmail,
+                eventStateRepPhone: action.eStateRepPhone,
                 venueName: action.vName,
                 venueStreet: action.vStreet,
                 venueCity: action.vCity,
                 venueState: action.vState,
                 venueZipcode: action.vZipcode,
+                venueMapLink: action.vMapLink,
             }
+        default:
     }
     return state;
 };

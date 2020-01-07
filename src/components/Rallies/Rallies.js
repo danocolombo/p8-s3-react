@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RallyItem from '../RallyItem/RallyItem';
 // import axios from '../../axios';
-import Rally from '../../containers/Rally/Rally';
+// import Rally from '../../containers/Rally/Rally';
 import classes from './Rallies.css';
 //import './Rallies.css';
 // import { getDefaultWatermarks } from 'istanbul-lib-report';

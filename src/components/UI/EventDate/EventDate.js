@@ -1,15 +1,11 @@
 import React from 'react';
-import classes from './EventDate.css';
 import './EventDate.css';
-import { format } from 'path';
 
 function extractDay (theString) {
     // takes the database string for event date and returns the date (day) of the event
     // YYYY-MM-DDT00:000:00:000Z
-    var tmp = theString + 'Z';
     var theDate = theString.substr(0,10);
     var dbDate = new Date(theDate.replace("-", "/"));
-    var displayNumber = dbDate.getDate();
     return dbDate.getDate();
 }
 function displayDate (s){
@@ -24,12 +20,10 @@ function displayDate (s){
 function displayWeekday (theString) {
     // takes the database string for event date and returns the date (day) of the event
     // YYYY-MM-DDT00:000:00:000Z
-    var tmp = theString + 'Z';
     var dbDate = new Date(theString);
     var dayOfWeek = dbDate.getDay();
     dayOfWeek = dayOfWeek + 1;
     return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
-    return dbDate.get;
 }
 function EventDate(props) {
     
