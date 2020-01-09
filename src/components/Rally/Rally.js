@@ -40,7 +40,7 @@ class Register extends Component {
 
   // }
 renderMap = () => {
-  loadScript("http://maps.googleapi.com/maps/api/js? key=AIzaSyAdxkkAQIbLHnNnLCSfY-U8tbBiH06tc0o&callback=initMap")
+  loadScript("http://maps.googleapi.com/maps/api/js? key=YOUR_API_KEY_HERE&callback=initMap")
   window.initMap = this.initMap
 }
 
