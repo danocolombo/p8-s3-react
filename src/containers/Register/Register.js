@@ -1,100 +1,33 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Link,
-  useLocation
-} from "react-router-dom";
+import React, { useState } from "react";
+import ContactData from './ContactData/ContactDataForm';
+import './Register.css';
+const Register = props => {
+    const [ registration, setRegistration ] = useState({
+      fName: "",
+      lName: "",
+      email: "",
+      phone: "",
+      newletter: false,
+      registrationCount: 0,
+      crName: "",
+      crCity: "",
+      crState: "",
+      crRole: "2",
+      hostP8: false,
+      notes: "",
+    });
 
-import RallyItem from '../../components/RallyItem/RallyItem';
-import ContactInfo from './ContactData/ContactData';
-import RallyInfo from '../../components/RallyItem/RallyInfo';
-
-class Register extends Component {
-  componentDidMount(){
-    this.getVenueInfo();
-
-  }
-  
-  getVenueInfo2 = () => {
-    // //this will fetch by post with the eventID
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    // this.venueId = params.get('id');
-    this.props.setEventID(params.get('id'));
-    
-    // fetch("https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event",
-    //   {
-    //     method: 'POST',
-    //     mode: 'cors',
-    //     headers: {'Content-Type': 'application/json',
-    //       'Accept': 'application/json'},
-    //     body: JSON.stringify({
-    //           id: 2
-    //        }) 
-    //   })
-    //   .then(res => res.json())
-    //   .catch(() => this.setState({ hasErrors: true }));
-    
-    //   console.log('made it past fetch');
-    //   console.log(this.state.hasErrors);
-    
-    
-
-  }
-
-  getVenueInfo = () => {
-    // //this is to load the venue info from the id passed into the page
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-  
-    this.props.setEventID(params.get('id'));
-
-    let rallyevent = "<p>something went wrong</p>";
-    let fetchTarget = "https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/event/retrieve?eventId=" + this.props.eid;
-    fetch(fetchTarget)
-          .then((resp)=>{
-              resp.json().then((res)=>{                    
-                  this.props.setEventInfo(res)
-              })
-          });
-    
-  }
-  render() {
+    function handleFormChange({target}){
+      const updatedRegistration = { ...registration, [target.name]: target.value };
+      setRegistration(updatedRegistration);
+    }
     return (
-      <div>
-        <h3>REGISTRATION</h3>
-        <div>Event ID: {this.props.eid}</div>
-        <ContactInfo />
-        <RallyInfo value={this.props.eid} />
-        {console.log('eid:' + this.props.eid)}
-        {console.log('rally:' + this.props.rally.eDate)}
-      </div>
+      <>
+        <h2>Register</h2>
+        <ContactData registration={registration}
+          onFieldChange={handleFormChange}/>
+      </>
     );
-  }
-}
-//==============================
-// start redux definitions
-//==============================
-const mapStateToProps = state => {
-  return {
-      eid: state.eventId,
-      rally: state.rally
   };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-      setEventInfo: (rally) => dispatch({type: 'SET_RALLY', rally: rally}),
-      setEventID: (id) => dispatch({type: 'SET_EVENT_ID', val: id}),
-  };
-};
-export default  connect(mapStateToProps, mapDispatchToProps)(Register);
-
-function EventInfo() {
-  return (
-    <h2>ChurchInfo</h2>
-
-    
-  );
-}
+  
+  export default Register;

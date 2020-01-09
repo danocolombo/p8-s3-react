@@ -42,3 +42,21 @@
     color: white;
     background-color: #fa923f;
 }
+
+
+
+.RegisterLabel{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.RegisterControl{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 20px;
+    font-size: 1em;
+    size: 10;
+}
+.NewsletterLabel .RegCountLabel .HostP8Label{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1em;
+    font-weight: 500;
+}

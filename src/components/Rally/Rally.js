@@ -38,7 +38,12 @@ class Register extends Component {
   //     res.data[0].eDate);
 
   // }
-  
+ initMap = () => {
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
   render() {
     return (
       <div>
@@ -49,7 +54,8 @@ class Register extends Component {
           
           <div className="VenueName">{this.props.vName}</div>
           <div className="VenueAddress">{this.props.vStreet}<br/>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
-          <EventTimes startTime={this.props.eStart} endTime={this.props.eEnd}/>
+          <EventTimes  startTime={this.props.eStart} endTime={this.props.eEnd}/>
+          <Link className="btn btn-primary" to="/register?id={this.props.eid}">REGISTER NOW!</Link>
           <div className="EventComments" >{this.props.eventNotes}</div>
           <div className="FurtherInfo">
             If you need further information, please contact your CR state rep, or you can contact the supporting state rep.<br/>
@@ -59,7 +65,11 @@ class Register extends Component {
             <font className="stateRepEmail">{this.props.eStateRepEmail}</font><br/>
             <font className="stateRepPhone">{this.props.eStateRepPhone}</font>
           </div>
-          <div className="VenueMap">{this.props.vMapLink}</div>
+          <div className="VenueMap">
+            <div id="map"></div>
+            
+            
+            {this.props.vMapLink}</div>
         </div>
         {/* {console.log('eid:' + this.props.eid)}
         {console.log('eDate:' + this.props.eDate)}
