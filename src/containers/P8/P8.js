@@ -10,6 +10,7 @@ import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Home from '../../components/Home/Home';
 import Rallies from '../../components/Rallies/Rallies';
 import Rally from '../../components/Rally/Rally';
+import Admin from '../../containers/EventAdmin/EventAdmin';
 // import MenuBar from '../../components/Navigation/Toolbar/MenuBar';
 // import Menu from '@material-ui/core/Menu';
 // import MenuItem from '@material-ui/core/MenuItem';
@@ -48,6 +49,7 @@ class P8 extends Component {
                     <Route path="/rallies" component={Rallies} />
                     <Route path="/register" component={Register} />
                     <Route path="/rally" component={Rally} />
+                    <Route path="/admin" component={Admin} />
                     <div className="RogueFooter">Rogue Intel 2020</div>
             </div>
         );

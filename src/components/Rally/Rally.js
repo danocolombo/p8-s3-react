@@ -12,6 +12,7 @@ import classes from './Rally.css';
 class Register extends Component {
   componentDidMount(){
     this.getVenueInfo();
+    this.renderMap();
 
   }
   getVenueInfo(){
@@ -38,8 +39,13 @@ class Register extends Component {
   //     res.data[0].eDate);
 
   // }
+renderMap = () => {
+  loadScript("http://maps.googleapi.com/maps/api/js? key=AIzaSyAdxkkAQIbLHnNnLCSfY-U8tbBiH06tc0o&callback=initMap")
+  window.initMap = this.initMap
+}
+
  initMap = () => {
-    const map = new google.maps.Map(document.getElementById('map'), {
+    const map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 8
     });
@@ -78,6 +84,22 @@ class Register extends Component {
       </div>
     );
   }
+}
+
+function loadScript (url){
+  // this creates a reference to the first <script> reference (index)
+  // in the dom, and then inserts a new <script> reference (script)
+  //
+  // this chunk of code literally creates the following javascript
+  // <script src "http...." async defer></script>
+  
+  var index = window.document.getElementsByTagName("script")[0]
+  var script = window.document.createElement("script")
+  script.src = url
+  script.async = true
+  script.defer = true
+  index.parentNode.insertBefore(script, index)
+
 }
 //==============================
 // start redux definitions     <div className='Venue'>Event ID: {this.props.eid}</div>
