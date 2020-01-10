@@ -5,6 +5,7 @@ import axios from "../../axios";
 import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 import EventTimes from "../UI/EventTimes/EventTimes";
 import EventDate from "../UI/EventDate/EventDate";
+import Button from "../CustomButtons/Button";
 import classes from "./Rally.css";
 class Register extends Component {
     componentDidMount() {
@@ -74,9 +75,8 @@ class Register extends Component {
                         className='btn btn-primary'
                         to={"/register?id=" + this.props.eid}
                     >
-                        REGISTER NOW!
+                        <Button color='success'>REGISTER NOW!</Button>
                     </Link>
-
                     <div className='EventComments'>{this.props.eventNotes}</div>
                     <div className='FurtherInfo'>
                         If you need further information, please contact your CR
