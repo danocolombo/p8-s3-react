@@ -1,10 +1,5 @@
 import React from 'react';
-// import classes from './EventTimes.css';
 
-// function convertTimes (s, f){
-//     return 'blah, blah, blah';
-// }
-// {textDecoration: todo.isCompleted ? 'line-through' : ''}
 function EventTimes(props) {
     const convertTimes = (s, e) => {
         var sd = s.replace(":", ".");
@@ -29,7 +24,7 @@ function EventTimes(props) {
     }
     return (
         <div>
-        <div className="VenueTimes">{convertTimes(props.startTime, props.endTime)}</div>
+        <div className="EventTimes">{convertTimes(props.startTime, props.endTime)}</div>
         </div>
     )
 }
