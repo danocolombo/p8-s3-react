@@ -61,6 +61,7 @@ renderMap = () => {
           <div className="VenueName">{this.props.vName}</div>
           <div className="VenueAddress">{this.props.vStreet}<br/>{this.props.vCity}, {this.props.vState} {this.props.vZipcode}</div>
           <EventTimes  startTime={this.props.eStart} endTime={this.props.eEnd}/>
+          <div><img src={this.props.eGraphics} width="400"/></div>
           <Link className="btn btn-primary" to="/register?id={this.props.eid}">REGISTER NOW!</Link>
           <div className="EventComments" >{this.props.eventNotes}</div>
           <div className="FurtherInfo">
@@ -114,6 +115,7 @@ const mapStateToProps = state => {
       eStateRepName: state.eventStateRepName,
       eStateRepEmail: state.eventStateRepEmail,
       eStateRepPhone: state.eventStateRepPhone,
+      eGraphics: state.eventGraphics,
       vName: state.venueName,
       vStreet: state.venueStreet,
       vCity: state.venueCity,
@@ -139,6 +141,7 @@ const mapDispatchToProps = dispatch => {
         eStateRepName: r.stateRepName,
         eStateRepEmail: r.stateRepEmail,
         eStateRepPhone: r.stateRepPhone,
+        eGraphics: r.eGraphics,
         vName: r.churchName,
         vStreet: r.churchStreet,
         vCity: r.churchCity,
