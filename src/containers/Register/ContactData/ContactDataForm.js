@@ -7,11 +7,18 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 // @material-ui/icons
 import Check from "@material-ui/icons/Check";
-
+//folloing added for materialize-ui inputs
+import InputAdornment from "@material-ui/core/InputAdornment";
+import People from "@material-ui/icons/People";
+import GridContainer from "../../../components/Grid/GridContainer.js";
+import GridItem from "../../../components/Grid/GridItem.js";
+// import CustomInput from "components/CustomInput/CustomInput.js";
+import CustomInput from "../../../components/CustomInput/CustomInput";
+//------- materialize imports/configs END
 //import styles from "assets/jss/material-kit-react/customCheckboxRadioSwitch.js";
 import styles from "../../../assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle";
 const useStyles = makeStyles(styles);
-//------- materialize imports/configs END
+
 // import './ContactData.css'
 function RegisterForm(props) {
     const [checked, setChecked] = React.useState([24, 22]);
@@ -34,6 +41,77 @@ function RegisterForm(props) {
 
     return (
         <form>
+            <GridContainer>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        labelText='Disabled'
+                        id='disabled'
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                        inputProps={{
+                            disabled: true
+                        }}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        id='regular'
+                        inputProps={{
+                            placeholder: "Regular"
+                        }}
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        labelText='With floating label'
+                        id='float'
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        labelText='Success input'
+                        id='success'
+                        success
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        labelText='Error input'
+                        id='error'
+                        error
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
+                    <CustomInput
+                        labelText='With material Icons'
+                        id='material'
+                        formControlProps={{
+                            fullWidth: true
+                        }}
+                        inputProps={{
+                            endAdornment: (
+                                <InputAdornment position='end'>
+                                    <People />
+                                </InputAdornment>
+                            )
+                        }}
+                    />
+                </GridItem>
+            </GridContainer>
+
             <div>
                 <label className='RegisterLabel' htmlFor='title'>
                     Your name
