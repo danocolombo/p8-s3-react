@@ -35,7 +35,8 @@ import CustomInput from "../../components/CustomInput/CustomInput.js";
 // import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.js";
 import signupPageStyle from "../../assets/jss/material-kit-pro-react/views/signupPageStyle";
 
-import image from "../../assets/img/bg7.jpg";
+//this is the BACKGROUND image....
+import image from "../../assets/img/fullpage-background.jpg";
 
 const useStyles = makeStyles(signupPageStyle);
 
@@ -58,13 +59,6 @@ export default function SignUpPage({ ...rest }) {
     const classes = useStyles();
     return (
         <div>
-            {/* <Header
-                absolute
-                color='transparent'
-                brand='Material Kit PRO React'
-                links={<HeaderLinks dropdownHoverColor='rose' />}
-                {...rest}
-            /> */}
             <div
                 className={classes.pageHeader}
                 style={{
@@ -80,29 +74,6 @@ export default function SignUpPage({ ...rest }) {
                                 <h2 className={classes.cardTitle}>Register</h2>
                                 <CardBody>
                                     <GridContainer justify='center'>
-                                        <GridItem xs={12} sm={5} md={5}>
-                                            {/* <InfoArea
-                                                className={classes.infoArea}
-                                                title='Marketing'
-                                                description="We've created the marketing campaign of the website. It was a very interesting collaboration."
-                                                icon={Timeline}
-                                                iconColor='rose'
-                                            /> */}
-                                            {/* <InfoArea
-                                                className={classes.infoArea}
-                                                title='Fully Coded in HTML5'
-                                                description="We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub."
-                                                icon={Code}
-                                                iconColor='primary'
-                                            /> */}
-                                            {/* <InfoArea
-                                                className={classes.infoArea}
-                                                title='Built Audience'
-                                                description='There is also a Fully Customizable CMS Admin Dashboard for this product.'
-                                                icon={Group}
-                                                iconColor='info'
-                                            /> */}
-                                        </GridItem>
                                         <GridItem xs={12} sm={5} md={5}>
                                             <div className={classes.textCenter}>
                                                 {/* <Button

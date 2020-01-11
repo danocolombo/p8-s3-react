@@ -7,9 +7,7 @@ import {
     blackColor,
     hexToRgb
 } from "../../material-kit-pro-react/material-kit-pro-react";
-//"assets/jss/material-kit-pro-react.js";
 
-//import customCheckboxRadioSwitchStyle from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.js";
 import customCheckboxRadioSwitchStyle from "../customCheckboxRadioSwitchStyle";
 
 const signupPageStyle = {
@@ -17,7 +15,7 @@ const signupPageStyle = {
         ...container,
         zIndex: "2",
         position: "relative",
-        paddingTop: "20vh",
+        paddingTop: "5vh",
         color: whiteColor
     },
     pageHeader: {
@@ -52,7 +50,7 @@ const signupPageStyle = {
         }
     },
     cardSignup: {
-        borderRadius: "6px",
+        borderRadius: "20px",
         boxShadow:
             "0 16px 24px 2px rgba(" +
             hexToRgb(blackColor) +
@@ -62,7 +60,7 @@ const signupPageStyle = {
             hexToRgb(blackColor) +
             ", 0.2);",
         marginBottom: "100px",
-        padding: "40px 0px"
+        padding: "10px 0px"
     },
     cardTitle: {
         ...cardTitle,
