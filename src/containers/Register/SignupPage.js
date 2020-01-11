@@ -74,55 +74,7 @@ export default function SignUpPage({ ...rest }) {
                                 <h2 className={classes.cardTitle}>Register</h2>
                                 <CardBody>
                                     <GridContainer justify='center'>
-                                        <GridItem xs={12} sm={5} md={5}>
-                                            <div className={classes.textCenter}>
-                                                {/* <Button
-                                                    justIcon
-                                                    round
-                                                    color='twitter'
-                                                >
-                                                    <i
-                                                        className={
-                                                            classes.socials +
-                                                            " fab fa-twitter"
-                                                        }
-                                                    />
-                                                </Button>
-                                                {` `}
-                                                <Button
-                                                    justIcon
-                                                    round
-                                                    color='dribbble'
-                                                >
-                                                    <i
-                                                        className={
-                                                            classes.socials +
-                                                            " fab fa-dribbble"
-                                                        }
-                                                    />
-                                                </Button>
-                                                {` `}
-                                                <Button
-                                                    justIcon
-                                                    round
-                                                    color='facebook'
-                                                >
-                                                    <i
-                                                        className={
-                                                            classes.socials +
-                                                            " fab fa-facebook-f"
-                                                        }
-                                                    />
-                                                </Button>
-                                                {` `}
-                                                <h4
-                                                    className={
-                                                        classes.socialTitle
-                                                    }
-                                                >
-                                                    or be classical
-                                                </h4> */}
-                                            </div>
+                                        <GridItem xs={10} sm={8} md={8}>
                                             <form className={classes.form}>
                                                 <CustomInput
                                                     formControlProps={{
@@ -239,25 +191,20 @@ export default function SignUpPage({ ...rest }) {
                                                     }
                                                     label={
                                                         <span>
-                                                            I agree to the{" "}
-                                                            <a href='#pablo'>
-                                                                terms and
-                                                                conditions
-                                                            </a>
-                                                            .
+                                                            I would like to
+                                                            receive the CR
+                                                            National Newsletter
                                                         </span>
                                                     }
                                                 />
                                                 <div
-                                                    className={
-                                                        classes.textCenter
-                                                    }
+                                                    className={classes.textLeft}
                                                 >
                                                     <Button
                                                         round
                                                         color='primary'
                                                     >
-                                                        Get started
+                                                        Register
                                                     </Button>
                                                 </div>
                                             </form>
