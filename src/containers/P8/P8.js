@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import axios from '../../axios';
-import Register from "../../containers/Register/Register";
+import Register from "../../containers/Register/SignupPage";
 import { Route, Link } from "react-router-dom";
 // import Layout from '../../hoc/Layout/Layout';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";

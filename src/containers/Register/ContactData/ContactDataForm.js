@@ -114,27 +114,71 @@ function RegisterForm(props) {
 
             <div>
                 <label className='RegisterLabel' htmlFor='title'>
-                    Your name
+                    Your contact information
                 </label>
                 <div>
-                    <input
-                        id='firstName'
-                        type='text'
-                        onChange={props.onFieldChange}
+                    <CustomInput
+                        id='float'
+                        labelText='With floating label'
+                        labelText='First Name'
                         name='fName'
-                        className='RegisterControl'
-                        placeholder='first name'
-                        value={props.registration.fName}
-                    />
+                        inputProps={{
+                            placeholder: "First Name"
+                        }}
+                        formControlProps={{
+                            fullWidth: false
 
-                    <input
-                        id='lastName'
-                        type='text'
-                        onChange={props.onFieldChange}
+                            // onChange={props.onFieldChange}
+                            // value={props.registration.fName}
+                        }}
+                    />
+                    <CustomInput
+                        id='float'
+                        labelText='Last Name'
                         name='lName'
-                        className='RegisterControl'
-                        placeholder='last name'
-                        value={props.registration.lName}
+                        inputProps={{
+                            placeholder: "Last Name"
+                        }}
+                        formControlProps={{
+                            fullWidth: false,
+                            width: 150
+                            // onChange={props.onFieldChange}
+                            // value={props.registration.fName}
+                        }}
+                    />
+                </div>
+                <div>
+                    <CustomInput
+                        id='float'
+                        labelText='Email Address'
+                        name='email'
+                        inputProps={{
+                            placeholder: "email address"
+                        }}
+                        formControlProps={{
+                            fullWidth: false,
+                            width: "500px"
+
+                            // onChange={props.onFieldChange}
+                            // value={props.registration.fName}
+                        }}
+                    />
+                </div>
+                <div>
+                    <CustomInput
+                        id='float'
+                        labelText='Email Address'
+                        name='email'
+                        inputProps={{
+                            placeholder: "email address"
+                        }}
+                        formControlProps={{
+                            fullWidth: false,
+                            width: "500px"
+
+                            // onChange={props.onFieldChange}
+                            // value={props.registration.fName}
+                        }}
                     />
                 </div>
             </div>
