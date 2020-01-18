@@ -4,10 +4,7 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 import "./Home.css";
 const Home = props => (
-    <div
-        class='page-header header-filter'
-        style="background-image: url('assets/img/cover.jpeg');"
-    >
+    <Aux>
         <Backdrop show={props.show} />
         <section>
             <h1>Welcome Home</h1>
@@ -36,6 +33,6 @@ const Home = props => (
                 </div>
             </div>
         </section>
-    </div>
+    </Aux>
 );
 export default Home;
