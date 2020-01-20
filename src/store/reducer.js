@@ -15,11 +15,34 @@ const initialState = {
     venueState: "",
     venueZipcode: "",
     venueMapLink: "",
-    userAuth: false
+    authProvider: "",
+    authenticated: false,
+    userFirstName: "Dano",
+    userLastName: "",
+    userID: ""
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case "SET_USER_INFO":
+            return {
+                ...state,
+                authenticated: true,
+                authProvider: action.authProvider,
+                userFistName: action.fName,
+                userLastName: action.lName,
+                userID: action.userID
+            };
+        case "SET_AUTH_FLAG_TRUE":
+            return {
+                ...state,
+                authenticated: true
+            };
+        case "SET_AUTH_FLAG_FALSE":
+            return {
+                ...state,
+                authenticated: false
+            };
         case "SET_EVENT_ID":
             return {
                 ...state,
