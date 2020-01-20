@@ -8,6 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import axios from "axios";
 import reducer from "./store/reducer";
 
+// CREATE REDUX STORE
 const store = createStore(reducer);
 
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";

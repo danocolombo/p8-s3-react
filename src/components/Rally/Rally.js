@@ -13,11 +13,17 @@ class Register extends Component {
         this.renderMap();
     }
     getVenueInfo() {
+        // this gets the event id from the URL params
         let search = window.location.search;
         let params = new URLSearchParams(search);
         let theID = params.get("id");
+        // save the id to the redux store
         this.props.setEventID(params.get("id"));
-        // this gets all the rally information
+        // this gets all the rally information, then passes it to redux
+        //---------------------------------------------------------------
+        // we have the apiURL in redux, grab that and make url for axios
+        let theAPI = this.props.getAPIURL;
+        console.log("apiURL:" + theAPI);
         axios({
             method: "get",
             url:
@@ -28,8 +34,6 @@ class Register extends Component {
         })
             .then(res => this.props.setEventDetails(res.data[0]))
             .catch(err => console.error(err));
-        //.then(res => console.log(res.data[0]))
-        //.then(res => this.props.setEventDetails(res))
     }
     // saveVenueToRedux = (res) => {
     //   this.props.setEventDetails(
@@ -130,6 +134,7 @@ function loadScript(url) {
 //==============================
 const mapStateToProps = state => {
     return {
+        apiURL: state.apiURL,
         eid: state.eventId,
         eDate: state.eventDate,
         eStart: state.eventStartTime,
