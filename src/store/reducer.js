@@ -24,6 +24,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case "SET_AUTH_DEFINITION":
+            return {
+                ...state,
+                authDef: action.authDef
+            };
         case "SET_USER_INFO":
             return {
                 ...state,

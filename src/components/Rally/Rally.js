@@ -130,9 +130,9 @@ function loadScript(url) {
     index.parentNode.insertBefore(script, index);
 }
 //==============================
-// start redux definitions     <div className='Venue'>Event ID: {this.props.eid}</div>
+// start redux definitions     
 //==============================
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         apiURL: state.apiURL,
         eid: state.eventId,

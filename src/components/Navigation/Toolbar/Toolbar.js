@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
 import "./Toolbar.css";
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 
@@ -42,7 +43,9 @@ class Toolbar extends Component {
                             {this.props.authenticated ? (
                                 <a href='/logout'>Logout</a>
                             ) : (
-                                <a href='/login'>Login</a>
+                                <button onClick={this.props.authDef.login}>
+                                    LOGIN
+                                </button>
                             )}
                         </ul>
                     </div>
@@ -63,7 +66,8 @@ const mapStateToProps = (state, ownProps) => {
         userFName: state.userFirstName,
         userLName: state.userLastName,
         authProvider: state.authProvider,
-        drawerClickHandler: ownProps.drawerClickHandler
+        drawerClickHandler: ownProps.drawerClickHandler,
+        authDef: state.authDef
     };
 };
 const mapDispatchToProps = dispatch => {

@@ -1,14 +1,14 @@
 .side-drawer {
-    height: 100px;
+    height: 150px;
     background: white;
-    box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 150px;
     max-width: 400px;
     z-index: 200;
-}  
+}
 .side-drawer ul {
     list-style: none;
     display: flex;
@@ -24,7 +24,7 @@
     font-size: 1.2rem;
 }
 .side-drawer a:hover,
-.side-drawer a:active{
+.side-drawer a:active {
     color: #fa923f;
 }
 /* 
