@@ -1,4 +1,5 @@
 const initialState = {
+    apiURL: "https://evgvlc22t1.execute-api.us-east-1.amazonaws.com/UAT/",
     eventId: 0,
     eventDate: "",
     eventStartTime: "",
@@ -14,21 +15,50 @@ const initialState = {
     venueState: "",
     venueZipcode: "",
     venueMapLink: "",
-}
+    authProvider: "",
+    authenticated: false,
+    userFirstName: "Dano",
+    userLastName: "",
+    userID: ""
+};
 
 const reducer = (state = initialState, action) => {
-    switch (action.type){
-        case 'SET_EVENT_ID':
+    switch (action.type) {
+        case "SET_AUTH_DEFINITION":
+            return {
+                ...state,
+                authDef: action.authDef
+            };
+        case "SET_USER_INFO":
+            return {
+                ...state,
+                authenticated: true,
+                authProvider: action.authProvider,
+                userFistName: action.fName,
+                userLastName: action.lName,
+                userID: action.userID
+            };
+        case "SET_AUTH_FLAG_TRUE":
+            return {
+                ...state,
+                authenticated: true
+            };
+        case "SET_AUTH_FLAG_FALSE":
+            return {
+                ...state,
+                authenticated: false
+            };
+        case "SET_EVENT_ID":
             return {
                 ...state,
                 eventId: action.val
-            }
-        case 'SET_EVENT_DATE':
+            };
+        case "SET_EVENT_DATE":
             return {
                 ...state,
                 eventDate: action.val
-            }
-        case 'SET_EVENT_DETAILS':
+            };
+        case "SET_EVENT_DETAILS":
             return {
                 ...state,
                 eventDate: action.eDate,
@@ -44,8 +74,8 @@ const reducer = (state = initialState, action) => {
                 venueCity: action.vCity,
                 venueState: action.vState,
                 venueZipcode: action.vZipcode,
-                venueMapLink: action.vMapLink,
-            }
+                venueMapLink: action.vMapLink
+            };
         default:
     }
     return state;

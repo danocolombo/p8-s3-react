@@ -1,36 +1,36 @@
 .P8 .background {
-	background-image: url("./../../assets/images/fullpage-background.jpg" no-repeat);
+    background-image: url("./../../assets/images/fullpage-background.jpg"no-repeat);
 }
 .P8 ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
 }
 .P8 li {
-	display: inline-block;
-	margin: 20px;
+    display: inline-block;
+    margin: 20px;
 }
 .P8 a {
-	text-decoration: none;
-	font-size: 1.5em;
-	color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: black;
 }
 .P8 a:hover,
 .P8 a:active {
-	color: #fa823f;
+    color: #fa823f;
 }
 body {
-	background-color: gainsboro;
-	margin-left: 25px;
-	margin-top: 56px;
+    background-color: gainsboro;
+    margin-left: 25px;
+    margin-top: 56px;
 }
 .RogueFooter {
-	margin-top: 20px;
-	margin-left: 0px;
-	padding-bottom: 30px;
-	width: 100%;
-	font-size: .7em;
-	font-style: italic;
+    margin-top: 20px;
+    margin-left: 0px;
+    padding-bottom: 30px;
+    width: 100%;
+    font-size: 0.7em;
+    font-style: italic;
 }

@@ -7,8 +7,13 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import axios from "axios";
 import reducer from "./store/reducer";
+import { connect } from "react-redux";
+import Auth from "./components/Auth/Auth";
 
+// CREATE REDUX STORE
 const store = createStore(reducer);
+
+
 
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 axios.defaults.headers.common["Authorization"] = "AUTH TOKEN";
@@ -37,6 +42,8 @@ axios.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
+
 ReactDOM.render(
     <Provider store={store}>
         <App />
