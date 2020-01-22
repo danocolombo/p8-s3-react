@@ -69,9 +69,18 @@ export default function SignUpPage({ ...rest }) {
     const classes = useStyles();
     const [crState, setCRState] = React.useState("GA");
     const [open, setOpen] = React.useState(false);
+    const [openRole, setOpenRole] = React.useState(false);
+    const [crRole, setCRRole] = React.useState("VOL");
+    //const [open, setOpen] = React.useState(false);
 
     const handleChange = event => {
+        console.log(event.target.id);
         setCRState(event.target.value);
+    };
+
+    const handleChangeRole = event => {
+        console.log(event.target.id);
+        setCRRole(event.target.value);
     };
 
     const handleClose = () => {
@@ -80,6 +89,12 @@ export default function SignUpPage({ ...rest }) {
 
     const handleOpen = () => {
         setOpen(true);
+    };
+    const handleOpenRole = () => {
+        setOpenRole(true);
+    };
+    const handleCloseRole = () => {
+        setOpenRole(false);
     };
     return (
         <div className={classes.regBox}>
@@ -126,18 +141,37 @@ export default function SignUpPage({ ...rest }) {
                 value={crState}
                 onChange={handleChange}
             >
-                <MenuItem value=''>
-                    <em>State</em>
-                </MenuItem>
                 <MenuItem value={"AL"}>Alabama</MenuItem>
                 <MenuItem value={"FL"}>Florida</MenuItem>
-                <MenuItem value={"GA"}>Georgia</MenuItem>
-                <MenuItem value={"FL"}>Kentucky</MenuItem>
+                <MenuItem value={"GA"} selected>
+                    Georgia
+                </MenuItem>
+                <MenuItem value={"KY"}>Kentucky</MenuItem>
                 <MenuItem value={"MS"}>Mississippi</MenuItem>
                 <MenuItem value={"NC"}>North Carolina</MenuItem>
                 <MenuItem value={"SC"}>South Carolina</MenuItem>
                 <MenuItem value={"TN"}>Tennessee</MenuItem>
                 <MenuItem value={"VA"}>Virginia</MenuItem>
+            </Select>
+            <hr color='blue' width='350px' />
+            <p>What is your role at your CR?</p>
+            <Select
+                labelId='crRole'
+                label='Role'
+                id='crRole'
+                open={openRole}
+                onClose={handleCloseRole}
+                onOpen={handleOpenRole}
+                value={crRole}
+                onChange={handleChangeRole}
+            >
+                <MenuItem value={"ML"}>Ministry Leader</MenuItem>
+                <MenuItem value={"TEAM"}>T.E.A.M. member</MenuItem>
+                <MenuItem value={"VOL"} selected>
+                    Volunteer
+                </MenuItem>
+                <MenuItem value={"ALL"}>Everything</MenuItem>
+                <MenuItem value={"TBD"}>To Be Determined</MenuItem>
             </Select>
         </div>
     );
