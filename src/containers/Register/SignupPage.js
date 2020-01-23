@@ -5,11 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Typography from "@material-ui/core/Typography";
 
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Slider from "@material-ui/core/Slider";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Timeline from "@material-ui/icons/Timeline";
@@ -50,12 +52,12 @@ const useStyles = makeStyles({
         marginRight: "10px",
         maxWidth: "400px",
         paddingLeft: "10px",
-        paddingTop: "10px",
-        paddingBottom: "20px"
+        paddingTop: "10px"
+        // paddingBottom: "20px"
     },
     regIntro: {
-        fontSize: "14px",
-        paddingBottom: "20px"
+        fontSize: "14px"
+        // paddingBottom: "20px"
     },
     textField200: {
         width: "200px"
@@ -72,6 +74,91 @@ export default function SignUpPage({ ...rest }) {
     const [openRole, setOpenRole] = React.useState(false);
     const [crRole, setCRRole] = React.useState("VOL");
     //const [open, setOpen] = React.useState(false);
+    const marks = [
+        {
+            value: 1,
+            label: "1"
+        },
+        {
+            value: 2,
+            label: "2"
+        },
+        {
+            value: 3,
+            label: "3"
+        },
+        {
+            value: 4,
+            label: "4"
+        },
+        {
+            value: 5,
+            label: "5"
+        },
+        {
+            value: 6,
+            label: "6"
+        },
+        {
+            value: 7,
+            label: "7"
+        },
+        {
+            value: 8,
+            label: "8"
+        },
+        {
+            value: 9,
+            label: "9"
+        },
+        {
+            value: 10,
+            label: "10"
+        },
+        {
+            value: 11,
+            label: "11"
+        },
+        {
+            value: 12,
+            label: "12"
+        },
+        {
+            value: 13,
+            label: "13"
+        },
+        {
+            value: 14,
+            label: "14"
+        },
+        {
+            value: 15,
+            label: "15"
+        },
+        {
+            value: 16,
+            label: "16"
+        },
+        {
+            value: 17,
+            label: "17"
+        },
+        {
+            value: 18,
+            label: "18"
+        },
+        {
+            value: 19,
+            label: "19"
+        },
+        {
+            value: 20,
+            label: "20"
+        }
+    ];
+    function valuetext(value) {
+        return `{value}`;
+    }
 
     const handleChange = event => {
         console.log(event.target.id);
@@ -96,6 +183,9 @@ export default function SignUpPage({ ...rest }) {
     const handleCloseRole = () => {
         setOpenRole(false);
     };
+    const handleButtonClick = () => {
+        console.log("registering....");
+    };
     return (
         <div className={classes.regBox}>
             <div className={classes.regIntro}>
@@ -112,14 +202,27 @@ export default function SignUpPage({ ...rest }) {
                 length='50'
             />
             <br />
+            <Checkbox value='checked' />
+            Subscribe to CR National Newsletter?
+            <br />
             <TextField
                 label='Telephone'
                 id='telephone'
                 size='small'
-                paddingBottom='15px'
+                // paddingBottom='15px'
             />
-
+            <br />
+            <p> </p>
+            <br />
             <hr color='blue' width='350px' />
+            <TextField
+                id='standard-number'
+                label='Number Registering'
+                type='number'
+                InputLabelProps={{
+                    shrink: true
+                }}
+            />
             <TextField
                 className={classes.textField320}
                 label='Church Name'
@@ -153,7 +256,6 @@ export default function SignUpPage({ ...rest }) {
                 <MenuItem value={"TN"}>Tennessee</MenuItem>
                 <MenuItem value={"VA"}>Virginia</MenuItem>
             </Select>
-            <hr color='blue' width='350px' />
             <p>What is your role at your CR?</p>
             <Select
                 labelId='crRole'
@@ -173,6 +275,16 @@ export default function SignUpPage({ ...rest }) {
                 <MenuItem value={"ALL"}>Everything</MenuItem>
                 <MenuItem value={"TBD"}>To Be Determined</MenuItem>
             </Select>
+            <br />
+            <br />
+            <Button
+                id='btnSubmit'
+                variant='contained'
+                color='primary'
+                onClick={handleButtonClick}
+            >
+                REGISTER
+            </Button>
         </div>
     );
 }
