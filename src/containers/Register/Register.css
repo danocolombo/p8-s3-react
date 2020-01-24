@@ -63,7 +63,7 @@
     box-shadow: "0 3px 6px rgb(216, 146, 146)";
     margin-bottom: "10px";
     margin-right: "10px";
-    max-width: "400px";
+    max-width: "350px";
     padding-left: "10px";
     padding-top: "10px";
     padding-bottom: "20px";
@@ -91,14 +91,27 @@
     box-shadow: 0 2px 3px rgb(216, 146, 146);
     margin-bottom: 10px;
     margin-right: 10px;
-    max-width: 400px;
+    max-width: 350px;
 }
 .RegInnerBox {
     padding: 20px;
 }
+.FirstNameInput {
+    width: 125px;
+    padding-right: 20px;
+}
+.LastNameInput {
+    width: 125px;
+    padding-left: 10px;
+}
 .EmailInput {
     width: 300px;
     margin-left: 20px;
+}
+.SeparatorLine {
+    width: 270px;
+    border: 1px solid blue;
+    margin-bottom: 10px;
 }
 .RegCount {
     text-align: right;
