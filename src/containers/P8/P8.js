@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Auth from "../../components/Auth/Auth";
 // import axios from '../../axios';
-import Register from "../../containers/Register/SignupPage";
+import Register from "../../containers/Register/Register";
 import { Route, Link } from "react-router-dom";
 // import Layout from '../../hoc/Layout/Layout';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
