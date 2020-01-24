@@ -186,105 +186,111 @@ export default function SignUpPage({ ...rest }) {
     const handleButtonClick = () => {
         console.log("registering....");
     };
+    const handleFormSubmit = () => {
+        console.log("REG CLICK");
+    };
     return (
-        <div className={classes.regBox}>
-            <div className={classes.regIntro}>
-                Please provide the following information for your registration
+        <form onSubmit={handleFormSubmit}>
+            <div className={classes.regBox}>
+                <div className={classes.regIntro}>
+                    Please provide the following information for your
+                    registration
+                </div>
+                <TextField label='First Name' id='firstName' size='small' />
+                <TextField label='Last Name' id='lastName' size='small' />
+                <br />
+                <TextField
+                    className={classes.textField320}
+                    label='Email Address'
+                    id='email'
+                    size='small'
+                    length='50'
+                />
+                <br />
+                <Checkbox value='checked' />
+                Subscribe to CR National Newsletter?
+                <br />
+                <TextField
+                    label='Telephone'
+                    id='telephone'
+                    size='small'
+                    // paddingBottom='15px'
+                />
+                <br />
+                <p> </p>
+                <br />
+                <hr color='blue' width='350px' />
+                <TextField
+                    id='standard-number'
+                    label='Number Registering'
+                    type='number'
+                    InputLabelProps={{
+                        shrink: true
+                    }}
+                />
+                <TextField
+                    className={classes.textField320}
+                    label='Church Name'
+                    id='crChurchName'
+                    size='small'
+                    length='50'
+                />
+                <br />
+                <TextField label='City' id='crCity' size='small' length='50' />
+                <br />
+                <br />
+                <Select
+                    labelId='crState'
+                    label='State'
+                    id='crState'
+                    open={open}
+                    onClose={handleClose}
+                    onOpen={handleOpen}
+                    value={crState}
+                    onChange={handleChange}
+                >
+                    <MenuItem value={"AL"}>Alabama</MenuItem>
+                    <MenuItem value={"FL"}>Florida</MenuItem>
+                    <MenuItem value={"GA"} selected>
+                        Georgia
+                    </MenuItem>
+                    <MenuItem value={"KY"}>Kentucky</MenuItem>
+                    <MenuItem value={"MS"}>Mississippi</MenuItem>
+                    <MenuItem value={"NC"}>North Carolina</MenuItem>
+                    <MenuItem value={"SC"}>South Carolina</MenuItem>
+                    <MenuItem value={"TN"}>Tennessee</MenuItem>
+                    <MenuItem value={"VA"}>Virginia</MenuItem>
+                </Select>
+                <p>What is your role at your CR?</p>
+                <Select
+                    labelId='crRole'
+                    label='Role'
+                    id='crRole'
+                    open={openRole}
+                    onClose={handleCloseRole}
+                    onOpen={handleOpenRole}
+                    value={crRole}
+                    onChange={handleChangeRole}
+                >
+                    <MenuItem value={"ML"}>Ministry Leader</MenuItem>
+                    <MenuItem value={"TEAM"}>T.E.A.M. member</MenuItem>
+                    <MenuItem value={"VOL"} selected>
+                        Volunteer
+                    </MenuItem>
+                    <MenuItem value={"ALL"}>Everything</MenuItem>
+                    <MenuItem value={"TBD"}>To Be Determined</MenuItem>
+                </Select>
+                <br />
+                <br />
+                <Button
+                    id='btnSubmit'
+                    variant='contained'
+                    color='primary'
+                    onClick={handleFormSubmit}
+                >
+                    REGISTER
+                </Button>
             </div>
-            <TextField label='First Name' id='firstName' size='small' />
-            <TextField label='Last Name' id='lastName' size='small' />
-            <br />
-            <TextField
-                className={classes.textField320}
-                label='Email Address'
-                id='email'
-                size='small'
-                length='50'
-            />
-            <br />
-            <Checkbox value='checked' />
-            Subscribe to CR National Newsletter?
-            <br />
-            <TextField
-                label='Telephone'
-                id='telephone'
-                size='small'
-                // paddingBottom='15px'
-            />
-            <br />
-            <p> </p>
-            <br />
-            <hr color='blue' width='350px' />
-            <TextField
-                id='standard-number'
-                label='Number Registering'
-                type='number'
-                InputLabelProps={{
-                    shrink: true
-                }}
-            />
-            <TextField
-                className={classes.textField320}
-                label='Church Name'
-                id='crChurchName'
-                size='small'
-                length='50'
-            />
-            <br />
-            <TextField label='City' id='crCity' size='small' length='50' />
-            <br />
-            <br />
-            <Select
-                labelId='crState'
-                label='State'
-                id='crState'
-                open={open}
-                onClose={handleClose}
-                onOpen={handleOpen}
-                value={crState}
-                onChange={handleChange}
-            >
-                <MenuItem value={"AL"}>Alabama</MenuItem>
-                <MenuItem value={"FL"}>Florida</MenuItem>
-                <MenuItem value={"GA"} selected>
-                    Georgia
-                </MenuItem>
-                <MenuItem value={"KY"}>Kentucky</MenuItem>
-                <MenuItem value={"MS"}>Mississippi</MenuItem>
-                <MenuItem value={"NC"}>North Carolina</MenuItem>
-                <MenuItem value={"SC"}>South Carolina</MenuItem>
-                <MenuItem value={"TN"}>Tennessee</MenuItem>
-                <MenuItem value={"VA"}>Virginia</MenuItem>
-            </Select>
-            <p>What is your role at your CR?</p>
-            <Select
-                labelId='crRole'
-                label='Role'
-                id='crRole'
-                open={openRole}
-                onClose={handleCloseRole}
-                onOpen={handleOpenRole}
-                value={crRole}
-                onChange={handleChangeRole}
-            >
-                <MenuItem value={"ML"}>Ministry Leader</MenuItem>
-                <MenuItem value={"TEAM"}>T.E.A.M. member</MenuItem>
-                <MenuItem value={"VOL"} selected>
-                    Volunteer
-                </MenuItem>
-                <MenuItem value={"ALL"}>Everything</MenuItem>
-                <MenuItem value={"TBD"}>To Be Determined</MenuItem>
-            </Select>
-            <br />
-            <br />
-            <Button
-                id='btnSubmit'
-                variant='contained'
-                color='primary'
-                onClick={handleButtonClick}
-            >
-                REGISTER
-            </Button>
-        </div>
+        </form>
     );
 }
